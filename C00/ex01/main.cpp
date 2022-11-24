@@ -6,7 +6,7 @@
 /*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 14:17:40 by cmarcu            #+#    #+#             */
-/*   Updated: 2022/11/24 20:36:23 by cmarcu           ###   ########.fr       */
+/*   Updated: 2022/11/24 20:41:41 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,6 @@ int main(void)
         else if (command == "SEARCH")
         {
             //funcion search()
-            std::cout << "----id----|---name---|-lastname-|-nickname-" << std::endl;
-            for (int i = 0; i <= add_count; i++)
-            {
-                std::cout << 
-                
-            }
-            
-            std::cout << "----------|----------|----------|----------" << std::endl;
             phone_book.search();
         }
         else if (command == "EXIT")

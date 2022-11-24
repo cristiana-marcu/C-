@@ -6,7 +6,7 @@
 /*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 20:16:52 by cmarcu            #+#    #+#             */
-/*   Updated: 2022/11/22 15:54:42 by cmarcu           ###   ########.fr       */
+/*   Updated: 2022/11/24 20:40:11 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,17 @@ public:
     Contact();
     
     void setFirstName(std::string name);
-    void getFirstName();
+    std::string getFirstName();
     //Getters y setters para todos los atributos y desarrollarlos en el .cpp ¿?
     void setLastName(std::string lastName);
-    void getLastName();
+    std::string getLastName();
     
     void setNickname(std::string nickname);
-    void getNickname();
+    std::string getNickname();
 
     void setPhoneNumber(std::string phone);
-    void getPhoneNumber();
+    std::string getPhoneNumber();
 
     void setDarkestSecret(std::string secret);
-    void getDarkestSecret();
+    std::string getDarkestSecret();
 };

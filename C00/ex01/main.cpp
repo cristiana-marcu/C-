@@ -6,7 +6,7 @@
 /*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 14:17:40 by cmarcu            #+#    #+#             */
-/*   Updated: 2022/11/12 15:13:46 by cmarcu           ###   ########.fr       */
+/*   Updated: 2022/11/24 20:36:23 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void toupper_string(std::string str)
 
 int main(void)
 {
-    std::string input;
+    std::string command;
     //funcion para leer linea?
     //int para contar cuántas veces llevas llamando a ADD?
     int add_count;
@@ -37,20 +37,28 @@ int main(void)
     while(1)
     {
         std::cout << "Type a command (ADD, SEARCH or EXIT)";
-        std::cin >> input;
-        toupper_string(input);
+        std::cin >> command;
+        toupper_string(command);
         
-        if (input == "ADD")
+        if (command == "ADD")
         {
             //funcion add()
             phone_book.add(++add_count);
         }
-        else if (input == "SEARCH")
+        else if (command == "SEARCH")
         {
             //funcion search()
+            std::cout << "----id----|---name---|-lastname-|-nickname-" << std::endl;
+            for (int i = 0; i <= add_count; i++)
+            {
+                std::cout << 
+                
+            }
+            
+            std::cout << "----------|----------|----------|----------" << std::endl;
             phone_book.search();
         }
-        else if (input == "EXIT")
+        else if (command == "EXIT")
         {
             //break; ??
         }

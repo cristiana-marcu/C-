@@ -6,7 +6,7 @@
 /*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 14:17:40 by cmarcu            #+#    #+#             */
-/*   Updated: 2022/11/24 20:41:41 by cmarcu           ###   ########.fr       */
+/*   Updated: 2022/11/24 21:39:49 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,31 @@ void toupper_string(std::string str)
     //Quizás haya que devolver el str cambiado por ambito de variable?
 }
 
-
+void add(PhoneBook phone_book, int index)
+{
+    std::string line;
+    Contact contact = phone_book.getContact(index);
+    
+    std::cout << "Enter first name: " << std::endl;
+    getline(std::cin, line);
+    contact.setFirstName(line);
+    std::cout << "Enter last name: " << std::endl;
+    getline(std::cin, line);
+    contact.setLastName(line);
+    std::cout << "Enter nickname: " << std::endl;
+    getline(std::cin, line);
+    contact.setNickname(line);
+    std::cout << "Enter phone number: " << std::endl;
+    getline(std::cin, line);
+    contact.setPhoneNumber(line);
+    std::cout << "Enter darkest secret: " << std::endl;
+    getline(std::cin, line);
+    contact.setDarkestSecret(line);
+}
 
 int main(void)
 {
     std::string command;
-    //funcion para leer linea?
-    //int para contar cuántas veces llevas llamando a ADD?
     int add_count;
     PhoneBook phone_book;
     
@@ -43,7 +61,7 @@ int main(void)
         if (command == "ADD")
         {
             //funcion add()
-            phone_book.add(++add_count);
+            add(phone_book, add_count++);
         }
         else if (command == "SEARCH")
         {

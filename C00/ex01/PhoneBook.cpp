@@ -6,7 +6,7 @@
 /*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 19:42:36 by cmarcu            #+#    #+#             */
-/*   Updated: 2022/11/12 14:53:43 by cmarcu           ###   ########.fr       */
+/*   Updated: 2022/11/24 21:41:00 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,19 @@ SEARCH command until an EXIT command.
 
 class PhoneBook
 {
+    Contact getContact(int index)
+    {
+        return contacts[index];
+    }
     
+    void search()
+    {
+        
+    }
+    
+    void add(int index)
+    {
+        //Menudo lío que tengo tú haha
+    }
+        
 };

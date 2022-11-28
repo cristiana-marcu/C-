@@ -6,7 +6,7 @@
 /*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 19:42:36 by cmarcu            #+#    #+#             */
-/*   Updated: 2022/11/24 21:41:00 by cmarcu           ###   ########.fr       */
+/*   Updated: 2022/11/28 20:40:39 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,22 +57,34 @@ SEARCH command until an EXIT command.
 */
 
 #include <iostream>
+#include "Contact.hpp"
+#include "PhoneBook.hpp"
 
-class PhoneBook
+
+PhoneBook::PhoneBook()
 {
-    Contact getContact(int index)
+    std::cout << "hi";
+}
+
+Contact PhoneBook::getContact(int index)
+{
+    return this->contacts[index];
+}
+
+void PhoneBook::search()
+{
+    //Imprimir lo que ya haya dentro formateado
+    std::cout << "--index---|firstname-|-lastname-|-nickname-" << std::endl;
+    std::cout << "----------|----------|----------|----------" << std::endl;
+    for (int i = 0; i < 4; i++)
     {
-        return contacts[index];
+        Contact contact = getContact(i);
+        //std::cout << i << "         |" << contact.getFirstName //look for truncate
     }
-    
-    void search()
-    {
-        
-    }
-    
-    void add(int index)
-    {
-        //Menudo lío que tengo tú haha
-    }
-        
-};
+    //Pedir indice para buscar e imprimir info detallada
+}
+
+// void add(int index)
+// {
+//     //Menudo lío que tengo tú haha
+// }

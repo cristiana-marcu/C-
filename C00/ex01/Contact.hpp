@@ -6,12 +6,15 @@
 /*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 20:16:52 by cmarcu            #+#    #+#             */
-/*   Updated: 2022/11/24 20:40:11 by cmarcu           ###   ########.fr       */
+/*   Updated: 2022/11/28 19:22:20 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
+
+# include <iostream>
+# include <string>
 
 class Contact {
 
@@ -28,7 +31,7 @@ public:
     
     void setFirstName(std::string name);
     std::string getFirstName();
-    //Getters y setters para todos los atributos y desarrollarlos en el .cpp ¿?
+    
     void setLastName(std::string lastName);
     std::string getLastName();
     
@@ -41,3 +44,5 @@ public:
     void setDarkestSecret(std::string secret);
     std::string getDarkestSecret();
 };
+
+#endif

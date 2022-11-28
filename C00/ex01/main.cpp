@@ -6,7 +6,7 @@
 /*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 14:17:40 by cmarcu            #+#    #+#             */
-/*   Updated: 2022/11/24 21:39:49 by cmarcu           ###   ########.fr       */
+/*   Updated: 2022/11/28 20:38:03 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,19 +59,11 @@ int main(void)
         toupper_string(command);
         
         if (command == "ADD")
-        {
-            //funcion add()
             add(phone_book, add_count++);
-        }
         else if (command == "SEARCH")
-        {
-            //funcion search()
             phone_book.search();
-        }
         else if (command == "EXIT")
-        {
-            //break; ??
-        }
+            break;
         else
             std::cout << "Type a valid command (ADD, SEARCH or EXIT)";
     }

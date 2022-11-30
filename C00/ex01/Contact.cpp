@@ -6,7 +6,7 @@
 /*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 20:12:13 by cmarcu            #+#    #+#             */
-/*   Updated: 2022/11/28 19:27:05 by cmarcu           ###   ########.fr       */
+/*   Updated: 2022/11/30 20:39:39 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,11 @@ void Contact::setDarkestSecret(std::string secret)
 std::string Contact::getDarkestSecret()
 {
     return this->darkestSecret;
+}
+
+std::string Contact::truncateAttribute(std::string str)
+{
+    if (str.length() > 10)
+        return (str.substr(0, 8) + ".");
+    return str;    
 }

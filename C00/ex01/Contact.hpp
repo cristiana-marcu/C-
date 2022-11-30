@@ -6,7 +6,7 @@
 /*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 20:16:52 by cmarcu            #+#    #+#             */
-/*   Updated: 2022/11/28 19:22:20 by cmarcu           ###   ########.fr       */
+/*   Updated: 2022/11/30 20:36:25 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ public:
 
     void setDarkestSecret(std::string secret);
     std::string getDarkestSecret();
+
+    std::string truncateAttribute(std::string str);
 };
 
 #endif

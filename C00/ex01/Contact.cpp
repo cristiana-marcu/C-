@@ -6,7 +6,7 @@
 /*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 20:12:13 by cmarcu            #+#    #+#             */
-/*   Updated: 2022/11/30 20:39:39 by cmarcu           ###   ########.fr       */
+/*   Updated: 2022/12/01 17:39:03 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,13 @@ std::string Contact::truncateAttribute(std::string str)
     if (str.length() > 10)
         return (str.substr(0, 8) + ".");
     return str;    
+}
+
+void Contact::printContactInfo()
+{
+    std::cout << "First name: " << this->getFirstName() << std::endl;
+    std::cout << "Last name: " << this->getLastName() << std::endl;
+    std::cout << "Nickname: " << this->getNickname() << std::endl;
+    std::cout << "Phone number: " << this->getPhoneNumber() << std::endl;
+    std::cout << "Darkest secret: " << this->getDarkestSecret() << std::endl;
 }

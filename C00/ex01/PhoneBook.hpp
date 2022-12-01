@@ -6,7 +6,7 @@
 /*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 14:54:22 by cmarcu            #+#    #+#             */
-/*   Updated: 2022/11/30 20:35:42 by cmarcu           ###   ########.fr       */
+/*   Updated: 2022/12/01 17:35:09 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,22 @@ class PhoneBook {
     
 private:
     Contact contacts[8];
+    int total_of_contacts; 
+    int oldest_contact;
     
 public:
 
     PhoneBook();
 
     Contact getContact(int index);
-    void search();
     void addContact(Contact contact);
     void showContactInfo(int index);
+
+    void setTotalContacts(int n);
+    int getTotalContacts();
+
+    void setOldestContact(int n);
+    int getOldestContact();
 };
 
 #endif

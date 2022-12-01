@@ -6,7 +6,7 @@
 /*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 14:17:40 by cmarcu            #+#    #+#             */
-/*   Updated: 2022/11/29 19:08:50 by cmarcu           ###   ########.fr       */
+/*   Updated: 2022/12/01 17:36:35 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,27 @@ void toupper_string(std::string str)
     for (size_t j = 0; j < len; j++)
         str[j] = char(std::toupper(str[j]));
     //Quizás haya que devolver el str cambiado por ambito de variable?
+}
+
+void search(PhoneBook book)
+{
+    //Imprimir lo que ya haya dentro formateado
+    std::cout << "index     |firstname |lastname  |nickname  " << std::endl;
+    std::cout << "----------|----------|----------|----------" << std::endl;
+    for (int i = 0; i < 2; i++)
+    {
+        Contact contact = book.getContact(i);
+        // if (contact.getFirstName() == "")
+        //     break;
+        std::cout << contact.truncateAttribute(contact.getFirstName()) << std::setfill(' ') << std::setw(10) << std::left << "|";
+        std::cout << contact.truncateAttribute(contact.getLastName()) << std::setfill(' ') << std::setw(10) << std::left << "|";
+    }
+    //Pedir indice para buscar e imprimir info detallada
+    int index;
+    std::cout << "Please provide index between 0 and 7 to see contact info: " << std::endl;
+    std::cin >> index;
+    Contact contact = book.getContact(index);
+    contact.printContactInfo();     
 }
 
 void add(PhoneBook phone_book, int index)
@@ -62,7 +83,7 @@ int main(void)
         if (command == "ADD")
             add(phone_book, add_count++);
         else if (command == "SEARCH")
-            phone_book.search();
+            search(phone_book);
         else if (command == "EXIT")
             break;
         else

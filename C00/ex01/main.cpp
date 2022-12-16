@@ -57,50 +57,35 @@ void search(PhoneBook book)
     std::cin.ignore(INT_MAX, '\n');   
 }
 
+void prevent_empty_field(std::string &line, std::string field)
+{
+    while (getline(std::cin, line))
+    {
+        if (!line.empty())
+            break;
+        std::cout << field << " can't be blank: " << std::endl;
+    }
+}
+
 Contact add()
 {
     std::string line;
     Contact contact;
 
     std::cout << "Enter first name: " << std::endl;
-    while (getline(std::cin, line))
-    {
-        if (!line.empty())
-            break;
-        std::cout << "First name can't be blank: " << std::endl;
-    }
+    prevent_empty_field(line, "First name");
     contact.setFirstName(line);
     std::cout << "Enter last name: " << std::endl;
-    while (getline(std::cin, line))
-    {
-        if (!line.empty())
-            break;
-        std::cout << "Last name can't be blank: " << std::endl;
-    }
+    prevent_empty_field(line, "Last name");
     contact.setLastName(line);
     std::cout << "Enter nickname: " << std::endl;
-    while (getline(std::cin, line))
-    {
-        if (!line.empty())
-            break;
-        std::cout << "Nickname can't be blank: " << std::endl;
-    }
+    prevent_empty_field(line, "Nickname");
     contact.setNickname(line);
     std::cout << "Enter phone number: " << std::endl;
-    while (getline(std::cin, line))
-    {
-        if (!line.empty())
-            break;
-        std::cout << "Phone can't be blank: " << std::endl;
-    }
+    prevent_empty_field(line, "Phone");
     contact.setPhoneNumber(line);
     std::cout << "Enter darkest secret: " << std::endl;
-    while (getline(std::cin, line))
-    {
-        if (!line.empty())
-            break;
-        std::cout << "Secret can't be blank: " << std::endl;
-    }
+    prevent_empty_field(line, "Secret");
     contact.setDarkestSecret(line);
 
     return (contact);

@@ -17,7 +17,7 @@
 
 Contact::Contact()
 {
-    std::cout << "ho";
+    //std::cout << "ho";
 }
 
 void Contact::setFirstName(std::string name)
@@ -73,7 +73,7 @@ std::string Contact::getDarkestSecret()
 std::string Contact::truncateAttribute(std::string str)
 {
     if (str.length() > 10)
-        return (str.substr(0, 8) + ".");
+        return (str.substr(0, 9) + ".");
     return str;    
 }
 

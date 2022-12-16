@@ -21,8 +21,8 @@ class PhoneBook {
     
 private:
     Contact contacts[8];
-    int total_of_contacts; 
-    int oldest_contact;
+    int total_of_contacts = 0; 
+    int oldest_contact = 0;
     
 public:
 

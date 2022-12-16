@@ -13,6 +13,7 @@
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
 #include <iomanip>
+#include <climits>
 
 void toupper_string(std::string &str)
 {
@@ -35,44 +36,71 @@ void search(PhoneBook book)
     for (int i = 0; i < book.getTotalContacts(); i++)
     {
         Contact contact = book.getContact(i);
-        std::cout << std::setw(10) << std::left << i                                                 << "|";
-        std::cout << std::setw(10) << std::left << contact.truncateAttribute(contact.getFirstName()) << "|";
-        std::cout << std::setw(10) << std::left << contact.truncateAttribute(contact.getLastName())  << "|";
-        std::cout << std::setw(10) << std::left << contact.truncateAttribute(contact.getNickname())  << std::endl;
+        std::cout << std::setw(10) << i                                                 << "|";
+        std::cout << std::setw(10) << contact.truncateAttribute(contact.getFirstName()) << "|";
+        std::cout << std::setw(10) << contact.truncateAttribute(contact.getLastName())  << "|";
+        std::cout << std::setw(10) << contact.truncateAttribute(contact.getNickname())  << std::endl;
     }
     int index;
     std::cout << "Please provide index between 0 and 7 to see contact info: " << std::endl;
     std::cin >> index;
-    //TODO> igual no tiene que se run while, leer subject
-    while (!std::isdigit(index) || index < 0 || index >= book.getTotalContacts()) //TODO: chequear que no metan no ints
+    while (!std::cin.good() || index < 0 || index >= book.getTotalContacts())
     {
         std::cout << "Please provide valid index: " << std::endl;
         std::cin.clear();
+        std::cin.ignore(INT_MAX, '\n');
         std::cin >> index;
     }
     Contact contact = book.getContact(index);
-    contact.printContactInfo();     
+    contact.printContactInfo();
+    std::cin.clear();  
+    std::cin.ignore(INT_MAX, '\n');   
 }
 
 Contact add()
 {
     std::string line;
     Contact contact;
-    
+
     std::cout << "Enter first name: " << std::endl;
-    getline(std::cin >> std::ws, line);
+    while (getline(std::cin, line))
+    {
+        if (!line.empty())
+            break;
+        std::cout << "First name can't be blank: " << std::endl;
+    }
     contact.setFirstName(line);
     std::cout << "Enter last name: " << std::endl;
-    getline(std::cin, line);
+    while (getline(std::cin, line))
+    {
+        if (!line.empty())
+            break;
+        std::cout << "Last name can't be blank: " << std::endl;
+    }
     contact.setLastName(line);
     std::cout << "Enter nickname: " << std::endl;
-    getline(std::cin, line);
+    while (getline(std::cin, line))
+    {
+        if (!line.empty())
+            break;
+        std::cout << "Nickname can't be blank: " << std::endl;
+    }
     contact.setNickname(line);
     std::cout << "Enter phone number: " << std::endl;
-    getline(std::cin, line);
+    while (getline(std::cin, line))
+    {
+        if (!line.empty())
+            break;
+        std::cout << "Phone can't be blank: " << std::endl;
+    }
     contact.setPhoneNumber(line);
     std::cout << "Enter darkest secret: " << std::endl;
-    getline(std::cin, line);
+    while (getline(std::cin, line))
+    {
+        if (!line.empty())
+            break;
+        std::cout << "Secret can't be blank: " << std::endl;
+    }
     contact.setDarkestSecret(line);
 
     return (contact);
@@ -86,7 +114,7 @@ int main(void)
     while(1)
     {
         std::cout << "Type a command (ADD, SEARCH or EXIT)";
-        std::cin >> command;
+        getline(std::cin, command);
         toupper_string(command);
         
         if (command == "ADD")

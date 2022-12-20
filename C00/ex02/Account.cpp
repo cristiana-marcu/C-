@@ -1,10 +1,17 @@
 #include "Account.hpp"
 #include <iostream>
 
+int Account::_nbAccounts = 0;
+int Account::_totalAmount = 0;
+int Account::_totalNbDeposits = 0;
+int Account::_totalNbWithdrawals = 0;
+
 Account::Account(int initial_deposit)
 {
 	//[19920104_091532] index:0;amount:42;created
+	_displayTimestamp();
 	std::cout << "Account created: " << initial_deposit << std::endl;
+	_nbAccounts++;
 }
 
 Account::~Account(void)
@@ -65,4 +72,7 @@ void Account::displayStatus(void) const
 void Account::_displayTimestamp(void)
 {
 	//[19920104_091532]
+	std::time_t result = std::time(nullptr);
+    std::cout << std::asctime(std::localtime(&result))
+              << result << " seconds since the Epoch\n";
 }

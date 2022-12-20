@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cristianamarcu <cristianamarcu@student.    +#+  +:+       +#+         #
+#    By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/01 14:56:39 by cmarcu            #+#    #+#              #
-#    Updated: 2022/12/16 21:15:49 by cristianama      ###   ########.fr        #
+#    Updated: 2022/12/20 20:23:34 by cmarcu           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CC		=	c++
 
 SRC		=	Account.cpp tests.cpp
 OBJ		=	$(SRC:.cpp = .o)
-NAME	=	volatile_agenda
+NAME	=	account
 
 all:	$(NAME)
 

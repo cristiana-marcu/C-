@@ -62,14 +62,15 @@ void Account::makeDeposit(int deposit)
 
 bool Account::makeWithdrawal(int withdrawal)
 {
-	//[19920104_091532] index:0;p_amount:47;withdrawal:refused
-	//[19920104_091532] index:1;p_amount:819;withdrawal:34;amount:785;nb_withdrawals:1
-	std::cout << "Withdrawal: " << withdrawal << std::endl;
-	return false;
+	if (this->_amount < withdrawal)
+		return false;
+	this->checkAmount();
 }
 
 int Account::checkAmount(void) const
 {
+	//[19920104_091532] index:0;p_amount:47;withdrawal:refused
+	//[19920104_091532] index:1;p_amount:819;withdrawal:34;amount:785;nb_withdrawals:1
 	return 0;
 }
 

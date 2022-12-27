@@ -6,7 +6,7 @@
 /*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 14:54:22 by cmarcu            #+#    #+#             */
-/*   Updated: 2022/12/01 17:35:09 by cmarcu           ###   ########.fr       */
+/*   Updated: 2022/12/27 19:29:38 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 class PhoneBook {
     
 private:
-    Contact contacts[8];
-    int total_of_contacts = 0; 
-    int oldest_contact = 0;
+    Contact _contacts[8];
+    int _total_of_contacts; 
+    int _oldest_contact;
     
 public:
 

@@ -6,7 +6,7 @@
 /*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 20:16:52 by cmarcu            #+#    #+#             */
-/*   Updated: 2022/12/01 17:38:54 by cmarcu           ###   ########.fr       */
+/*   Updated: 2022/12/27 19:28:05 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,13 @@
 class Contact {
 
 private:
-    std::string firstName;
-    std::string lastName;
-    std::string nickname;
-    std::string phoneNumber;
-    std::string darkestSecret;    
+    std::string _firstName;
+    std::string _lastName;
+    std::string _nickname;
+    std::string _phoneNumber;
+    std::string _darkestSecret;    
 
 public:
-
-    Contact();
     
     void setFirstName(std::string name);
     std::string getFirstName();

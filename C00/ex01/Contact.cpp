@@ -6,7 +6,7 @@
 /*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 20:12:13 by cmarcu            #+#    #+#             */
-/*   Updated: 2022/12/01 17:39:03 by cmarcu           ###   ########.fr       */
+/*   Updated: 2022/12/27 19:29:17 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,60 +14,54 @@
 #include <string>
 #include "Contact.hpp"
 
-
-Contact::Contact()
-{
-    //std::cout << "ho";
-}
-
 void Contact::setFirstName(std::string name)
 {
-    this->firstName = name;
+    this->_firstName = name;
 }
 
 std::string Contact::getFirstName()
 {
-    return this->firstName;
+    return this->_firstName;
 }
 
 void Contact::setLastName(std::string lastName)
 {
-    this->lastName = lastName;
+    this->_lastName = lastName;
 }
 
 std::string Contact::getLastName()
 {
-    return this->lastName;
+    return this->_lastName;
 }
 
 void Contact::setNickname(std::string nickname)
 {
-    this->nickname = nickname;    
+    this->_nickname = nickname;    
 }
 
 std::string Contact::getNickname()
 {
-    return this->nickname;
+    return this->_nickname;
 }
 
 void Contact::setPhoneNumber(std::string phone)
 {
-    this->phoneNumber = phone;    
+    this->_phoneNumber = phone;    
 }
 
 std::string Contact::getPhoneNumber()
 {
-    return this->phoneNumber;
+    return this->_phoneNumber;
 }
 
 void Contact::setDarkestSecret(std::string secret)
 {
-    this->darkestSecret = secret;    
+    this->_darkestSecret = secret;    
 }
 
 std::string Contact::getDarkestSecret()
 {
-    return this->darkestSecret;
+    return this->_darkestSecret;
 }
 
 std::string Contact::truncateAttribute(std::string str)

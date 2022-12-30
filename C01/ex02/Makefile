@@ -6,7 +6,7 @@
 #    By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/30 13:10:29 by cmarcu            #+#    #+#              #
-#    Updated: 2022/12/30 13:10:47 by cmarcu           ###   ########.fr        #
+#    Updated: 2022/12/30 13:24:37 by cmarcu           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CC		=	c++ -std=c++98
 
 SRC		=	main.cpp
 OBJ		=	$(SRC:.cpp = .o)
-NAME	=	zombie
+NAME	=	point_and_ref
 
 all:	$(NAME)
 

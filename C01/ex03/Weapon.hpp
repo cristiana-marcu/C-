@@ -6,7 +6,7 @@
 /*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 13:32:19 by cmarcu            #+#    #+#             */
-/*   Updated: 2022/12/30 14:00:52 by cmarcu           ###   ########.fr       */
+/*   Updated: 2023/01/02 20:07:15 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ private:
     std::string _type;
 
 public:
-    Weapon();
     Weapon( std::string type);
     
     std::string getType() const;

@@ -6,7 +6,7 @@
 /*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 13:31:36 by cmarcu            #+#    #+#             */
-/*   Updated: 2022/12/30 14:02:19 by cmarcu           ###   ########.fr       */
+/*   Updated: 2023/01/02 20:11:30 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ HumanB::HumanB ( std::string name) {
 }
 
 Weapon HumanB::getWeapon( void ) {
-    return this->_weapon;
+    return *(this->_weapon);
 }
 
-void HumanB::setWeapon( Weapon weapon ) {
-    this->_weapon = weapon;
+void HumanB::setWeapon( Weapon& weapon ) {
+    this->_weapon = &weapon;
 }
 
 std::string HumanB::getName( void ) {

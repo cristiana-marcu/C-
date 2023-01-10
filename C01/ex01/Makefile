@@ -6,7 +6,7 @@
 #    By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/30 11:39:48 by cmarcu            #+#    #+#              #
-#    Updated: 2022/12/30 12:50:07 by cmarcu           ###   ########.fr        #
+#    Updated: 2023/01/10 18:29:01 by cmarcu           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,11 @@ CC		=	c++ -std=c++98
 SRC		=	main.cpp Zombie.cpp zombieHorde.cpp
 OBJ		=	$(SRC:.cpp = .o)
 NAME	=	zombie
+INCLUDES	=	Zombie.hpp
 
 all:	$(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) $(INCLUDES)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 clean:

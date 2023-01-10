@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
+/*   By: cristianamarcu <cristianamarcu@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 13:10:54 by cmarcu            #+#    #+#             */
-/*   Updated: 2023/01/03 21:49:43 by cmarcu           ###   ########.fr       */
+/*   Updated: 2023/01/03 23:27:11 by cristianama      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,20 +47,13 @@ int main(int argc, char *argv[])
 
     std::stringstream buffer;
     buffer << ifs.rdbuf();
-    std::cout << buffer.str() << std::endl;
     
     int lastCoincidence = 0;
     std::string bufferStr = buffer.str();
     
-    while (lastCoincidence != -1 && (size_t)lastCoincidence < bufferStr.length())
-    {
+    while (lastCoincidence != -1)
         myReplace(&bufferStr, argv[2], argv[3], &lastCoincidence);
-        std::cout << bufferStr << std::endl;
-        std::cout << lastCoincidence << std::endl;
-        
-    }
-
-    std::cout << bufferStr << std::endl;
+	buffer.str(bufferStr);
     ofs << buffer.rdbuf();
 
     ifs.close();

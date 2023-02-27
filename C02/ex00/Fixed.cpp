@@ -6,7 +6,7 @@
 /*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 21:32:36 by cmarcu            #+#    #+#             */
-/*   Updated: 2023/02/23 22:41:49 by cmarcu           ###   ########.fr       */
+/*   Updated: 2023/02/27 14:54:01 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,9 @@ Fixed::~Fixed( void ) {
 
 Fixed & Fixed::operator=( const Fixed & copy ) {
     
+    std::cout << "Assignation operator called" << std::endl;
     if (&copy != this)
         this->_value = copy.getRawBits();  
-
-    std::cout << "Assignation operator called" << std::endl;
     
     return *this;
 }

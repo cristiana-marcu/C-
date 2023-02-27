@@ -6,7 +6,7 @@
 /*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 21:32:57 by cmarcu            #+#    #+#             */
-/*   Updated: 2023/02/23 22:39:30 by cmarcu           ###   ########.fr       */
+/*   Updated: 2023/02/27 14:18:23 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Fixed {
     
 private:
     int _value;
-    static const int _fractional;
+    static const int _fractionalBits = 8;
 
 public:
     

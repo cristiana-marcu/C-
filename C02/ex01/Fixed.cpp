@@ -30,7 +30,7 @@ Fixed::Fixed( const int n ) {
 
 Fixed::Fixed( const float f ) {
 
-    this->_value = std::roundf(f * (1 << this->_fractionalBits));
+    this->_value = std::roundf(f * (1 << this->_fractionalBits));  //probar a quitar roundf
 
     std::cout << "Float constructor called" << std::endl;
 

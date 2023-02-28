@@ -14,15 +14,26 @@
 
 Point::Point( void ) : _x(0), _y(0) {
 
+    std::cout << "Default constructor called" << std::endl;
+
+    return ;
 }
 
 Point::Point( const float x, const float y ) : _x(x), _y(y) {
+    
+    std::cout << "Float constructor called" << std::endl;
 
+    return ;
 }
 
-Point::Point( Point const & src ) {
-    Fixed(this->_x) = src.getX();
-    Fixed(this->_y) = src.getY();
+Point::Point( Point const & src ) : _x(src.getX()), _y(src.getY()) { 
+
+    std::cout << "point Copy constructor called" << std::endl;
+
+    //Fixed(this->_x) = src.getX();
+   // Fixed(this->_y) = src.getY();
+
+    return ;
 }
 
 Point::~Point( void ) {

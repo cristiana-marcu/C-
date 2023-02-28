@@ -25,18 +25,11 @@ static Fixed area( Point const m, Point const n, Point const o) {
     Fixed v2y = o.getY() - m.getY();
     Fixed crossedProduct = (v1x * v2y) - (v1y * v2x);
 
-    std::cout << "nx: " << n.getX() << std::endl;
-    std::cout << "ny: " << n.getY() << std::endl;
-    std::cout << "crossedProduct: " << crossedProduct << std::endl;
-
     return abs(crossedProduct / 2);
 }
 
 bool bsp( Point const a, Point const b, Point const c, Point const point ) {
-    
-    std::cout << "Ax: " << a.getX() << std::endl;
-    std::cout << "Ay: " << a.getY() << std::endl;
-    
+
     Fixed abcArea = area(a, b, c);
     Fixed abpArea = area(a, b, point);
     Fixed bcpArea = area(b, c, point);

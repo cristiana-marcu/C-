@@ -28,10 +28,10 @@ Point::Point( const float x, const float y ) : _x(x), _y(y) {
 
 Point::Point( Point const & src ) : _x(src.getX()), _y(src.getY()) { 
 
-    std::cout << "point Copy constructor called" << std::endl;
+    //std::cout << "point Copy constructor called" << std::endl;
 
     //Fixed(this->_x) = src.getX();
-   // Fixed(this->_y) = src.getY();
+    //Fixed(this->_y) = src.getY();
 
     return ;
 }

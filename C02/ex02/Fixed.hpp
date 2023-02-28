@@ -41,30 +41,31 @@ public:
     int toInt( void ) const;
 
     //Comparison operators
-    Fixed & operator>( const Fixed & ) const;
-    Fixed & operator<( const Fixed & ) const;
-    Fixed & operator>=( const Fixed & ) const;
-    Fixed & operator<=( const Fixed & ) const;
-    Fixed & operator==( const Fixed & ) const;
-    Fixed & operator!=( const Fixed & ) const;
+    bool operator>( const Fixed & rhs) const;
+    bool operator<( const Fixed & rhs) const;
+    bool operator>=( const Fixed & rhs) const;
+    bool operator<=( const Fixed & rhs) const;
+    bool operator==( const Fixed & rhs) const;
+    bool operator!=( const Fixed & rhs) const;
 
     //Arithmetic operators
-    Fixed & operator+( const Fixed & );
-    Fixed & operator-( const Fixed & );
-    Fixed & operator*( const Fixed & );
-    Fixed & operator/( const Fixed & );
+    Fixed operator+( const Fixed & rhs);
+    Fixed operator-( const Fixed & rhs);
+    Fixed operator*( const Fixed & rhs);
+    Fixed operator/( const Fixed & rhs);
 
     Fixed & operator++( void );
     Fixed & operator--( void );
-    Fixed & operator++( int );
-    Fixed & operator--( int );
+    Fixed operator++( int );
+    Fixed operator--( int );
 
     //Min and max
-    static const Fixed & min( const Fixed &, const Fixed &);
-    static const Fixed & max( const Fixed &, const Fixed &);
+    static Fixed & min( Fixed & a, Fixed & b);
+    static Fixed & max( Fixed & a, Fixed & b);
 
-    static Fixed & min( Fixed &, Fixed &);
-    static Fixed & max( Fixed &, Fixed &);
+    static const Fixed & min( const Fixed & a, const Fixed & b);
+    static const Fixed & max( const Fixed & a, const Fixed & b);
+
 };
 
 std::ostream & operator<<( std::ostream & o, const Fixed & n);

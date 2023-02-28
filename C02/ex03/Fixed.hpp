@@ -49,10 +49,10 @@ public:
     bool operator!=( const Fixed & rhs) const;
 
     //Arithmetic operators
-    Fixed & operator+( const Fixed & rhs);
-    Fixed & operator-( const Fixed & rhs);
-    Fixed & operator*( const Fixed & rhs);
-    Fixed & operator/( const Fixed & rhs);
+    Fixed operator+( const Fixed & rhs);
+    Fixed operator-( const Fixed & rhs);
+    Fixed operator*( const Fixed & rhs);
+    Fixed operator/( const Fixed & rhs);
 
     Fixed & operator++( void );
     Fixed & operator--( void );

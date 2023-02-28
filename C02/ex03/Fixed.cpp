@@ -115,28 +115,24 @@ bool Fixed::operator!=( const Fixed & rhs) const {
 }
 
 //Arithmetic operators
-Fixed & Fixed::operator+( const Fixed & rhs ) {
+Fixed Fixed::operator+( const Fixed & rhs ) {
 
-    Fixed result(this->toFloat() + rhs.toFloat());
-    return result;
+    return Fixed(this->toFloat() + rhs.toFloat());
 }
 
-Fixed & Fixed::operator-( const Fixed & rhs ) {
+Fixed Fixed::operator-( const Fixed & rhs ) {
 
-    Fixed result(this->toFloat() - rhs.toFloat());
-    return result;
+    return Fixed(this->toFloat() - rhs.toFloat());
 }
 
-Fixed & Fixed::operator*( const Fixed & rhs ) {
+Fixed Fixed::operator*( const Fixed & rhs ) {
 
-    Fixed result(this->toFloat() * rhs.toFloat());
-    return result;
+    return Fixed(this->toFloat() * rhs.toFloat());
 }
 
-Fixed & Fixed::operator/( const Fixed & rhs ) {
+Fixed Fixed::operator/( const Fixed & rhs ) {
 
-    Fixed result(this->toFloat() * rhs.toFloat());
-    return result;
+    return Fixed(this->toFloat() / rhs.toFloat());
 }
 
 //Increment and decrement

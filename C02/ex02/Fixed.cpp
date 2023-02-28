@@ -83,6 +83,106 @@ int Fixed::toInt( void ) const {
     return (this->_value >> this->_fractionalBits);
 }
 
+//Comparison operators
+bool Fixed::operator>( const Fixed & rhs) const {
+    
+    return (this->getRawBits() > rhs.getRawBits());
+}
+
+bool Fixed::operator<( const Fixed & rhs) const {
+    
+    return (this->getRawBits() < rhs.getRawBits());
+}
+
+bool Fixed::operator>=( const Fixed & rhs) const {
+    
+    return (this->getRawBits() >= rhs.getRawBits());
+}
+
+bool Fixed::operator<=( const Fixed & rhs) const {
+    
+    return (this->getRawBits() <= rhs.getRawBits());
+}
+
+bool Fixed::operator==( const Fixed & rhs) const {
+    
+    return (this->getRawBits() == rhs.getRawBits());
+}
+
+bool Fixed::operator!=( const Fixed & rhs) const {
+    
+    return (this->getRawBits() != rhs.getRawBits());
+}
+
+//Arithmetic operators
+Fixed Fixed::operator+( const Fixed & rhs ) {
+
+    return Fixed(this->toFloat() + rhs.toFloat());
+}
+
+Fixed Fixed::operator-( const Fixed & rhs ) {
+
+    return Fixed(this->toFloat() - rhs.toFloat());
+}
+
+Fixed Fixed::operator*( const Fixed & rhs ) {
+
+    return Fixed(this->toFloat() * rhs.toFloat());
+}
+
+Fixed Fixed::operator/( const Fixed & rhs ) {
+
+    return Fixed(this->toFloat() / rhs.toFloat());
+}
+
+//Increment and decrement
+Fixed & Fixed::operator++( void ) {
+    ++this->_value;
+
+    return *this;
+}
+
+Fixed & Fixed::operator--( void ) {
+    --this->_value;
+
+    return *this;
+}
+
+Fixed Fixed::operator++( int ) {
+    Fixed tmp( *this );
+    tmp._value = this->_value++;
+
+    return tmp;
+}
+
+Fixed Fixed::operator--( int ) {
+    Fixed tmp( *this );
+    tmp._value = this->_value--;
+
+    return tmp;
+}
+
+//Min and max
+Fixed & Fixed::min( Fixed & a, Fixed & b) {
+    
+    return a < b ? a : b;
+}
+
+Fixed & Fixed::max( Fixed & a, Fixed & b) {
+    
+    return a > b ? a : b;
+}
+
+const Fixed & Fixed::min( const Fixed & a, const Fixed & b) {
+    
+    return a < b ? a : b;
+}
+
+const Fixed & Fixed::max( const Fixed & a, const Fixed & b) {
+    
+    return a > b ? a : b;
+}
+
 std::ostream &operator<<(std::ostream &o, Fixed const &n) {
 
     o << n.toFloat();

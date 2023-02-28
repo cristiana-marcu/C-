@@ -48,7 +48,3 @@ Fixed Point::getY( void ) const {
 
     return this->_y;
 }
-
-bool bsp( Point const a, Point const b, Point const c, Point const point ) {
-    
-}

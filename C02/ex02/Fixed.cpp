@@ -37,10 +37,10 @@ Fixed::Fixed( const float f ) {
     return ;
 }
 
-Fixed::Fixed( Fixed const & src ) {
+Fixed::Fixed( Fixed const & rhs ) {
     
-    *this = src;
     std::cout << "Copy constructor called" << std::endl;
+    this->_value = rhs.getRawBits();
 
     return ;
 }
@@ -163,27 +163,27 @@ Fixed Fixed::operator--( int ) {
 }
 
 //Min and max
-Fixed & Fixed::min( Fixed & a, Fixed & b) {
+Fixed & Fixed::min( Fixed & a, Fixed & b ) {
     
     return a < b ? a : b;
 }
 
-Fixed & Fixed::max( Fixed & a, Fixed & b) {
+Fixed & Fixed::max( Fixed & a, Fixed & b ) {
     
     return a > b ? a : b;
 }
 
-const Fixed & Fixed::min( const Fixed & a, const Fixed & b) {
+const Fixed & Fixed::min( const Fixed & a, const Fixed & b ) {
     
     return a < b ? a : b;
 }
 
-const Fixed & Fixed::max( const Fixed & a, const Fixed & b) {
+const Fixed & Fixed::max( const Fixed & a, const Fixed & b ) {
     
     return a > b ? a : b;
 }
 
-std::ostream &operator<<(std::ostream &o, Fixed const &n) {
+std::ostream &operator<<( std::ostream &o, Fixed const &n ) {
 
     o << n.toFloat();
     return (o);

@@ -37,10 +37,10 @@ Fixed::Fixed( const float f ) {
     return ;
 }
 
-Fixed::Fixed( Fixed const & src ) {
+Fixed::Fixed( Fixed const & rhs ) {
     
-    *this = src;
     //std::cout << "Copy constructor called" << std::endl;
+    this->_value = rhs.getRawBits();
 
     return ;
 }
@@ -52,11 +52,11 @@ Fixed::~Fixed( void ) {
     return ;
 }
 
-Fixed & Fixed::operator=( const Fixed & copy ) {
+Fixed & Fixed::operator=( const Fixed & rhs ) {
     
     //std::cout << "Assignation operator called" << std::endl;
-    if (&copy != this)
-        this->_value = copy.getRawBits();  
+    if (&rhs != this)
+        this->_value = rhs.getRawBits();  
     
     return *this;
 }

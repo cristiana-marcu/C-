@@ -6,7 +6,7 @@
 /*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 21:32:57 by cmarcu            #+#    #+#             */
-/*   Updated: 2023/02/27 14:18:23 by cmarcu           ###   ########.fr       */
+/*   Updated: 2023/03/03 15:57:50 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ public:
     Fixed();
     ~Fixed();
     
-    Fixed( Fixed const & src );
-    Fixed & operator=( Fixed const & copy );
+    Fixed( Fixed const & rhs );
+    Fixed & operator=( Fixed const & rhs );
 
     int getRawBits( void ) const;
     void setRawBits( int const raw );

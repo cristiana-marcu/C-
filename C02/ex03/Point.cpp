@@ -30,9 +30,6 @@ Point::Point( Point const & src ) : _x(src.getX()), _y(src.getY()) {
 
     //std::cout << "point Copy constructor called" << std::endl;
 
-    //Fixed(this->_x) = src.getX();
-    //Fixed(this->_y) = src.getY();
-
     return ;
 }
 
@@ -43,8 +40,8 @@ Point::~Point( void ) {
 Point & Point::operator=( Point const & rhs ) {
 
     if (this != &rhs) {
-        Fixed(this->_x) = rhs.getX();
-        Fixed(this->_y) = rhs.getY();
+        (Fixed) this->_x = rhs.getX();
+        (Fixed) this->_y = rhs.getY();
     }
 
     return *this;

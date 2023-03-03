@@ -31,8 +31,8 @@ public:
     Fixed( const float f );
     ~Fixed();
     
-    Fixed( Fixed const & src );
-    Fixed & operator=( Fixed const & copy );
+    Fixed( Fixed const & rhs );
+    Fixed & operator=( Fixed const & rhs );
 
     int getRawBits( void ) const;
     void setRawBits( int const raw );

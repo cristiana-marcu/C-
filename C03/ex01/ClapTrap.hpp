@@ -6,7 +6,7 @@
 /*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 17:48:12 by cmarcu            #+#    #+#             */
-/*   Updated: 2023/03/03 19:05:52 by cmarcu           ###   ########.fr       */
+/*   Updated: 2023/03/04 14:02:23 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 class ClapTrap {
 
-private:
+protected:
     std::string _name;
     unsigned int _hitPoints;
     unsigned int _energyPoints;

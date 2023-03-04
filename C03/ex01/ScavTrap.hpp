@@ -6,7 +6,7 @@
 /*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 13:58:10 by cmarcu            #+#    #+#             */
-/*   Updated: 2023/03/04 13:58:55 by cmarcu           ###   ########.fr       */
+/*   Updated: 2023/03/04 14:03:17 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 #ifndef SCAVTRAP_HPP
 #define SCAVTRAP_HPP
 
+# include <iostream>
+# include "ClapTrap.hpp"
 
+class ScavTrap : ClapTrap {
+    
+};
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 16:06:58 by cmarcu            #+#    #+#             */
-/*   Updated: 2023/03/04 17:04:14 by cmarcu           ###   ########.fr       */
+/*   Updated: 2023/03/06 21:12:48 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #define DIAMONTRAP_HPP
 
 # include <iostream>
-# include "ClapTrap.hpp"
 # include "ScavTrap.hpp"
 # include "FragTrap.hpp"
 

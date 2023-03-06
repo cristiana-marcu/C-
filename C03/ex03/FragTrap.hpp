@@ -20,8 +20,9 @@
 
 class FragTrap : public virtual ClapTrap {
 
-private:
-
+protected:
+    static const int _HP = 100;
+    static const int _DP = 30;
 public:
     FragTrap( void );
     FragTrap( std::string name );

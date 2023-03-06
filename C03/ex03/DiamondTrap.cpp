@@ -6,7 +6,7 @@
 /*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 16:07:00 by cmarcu            #+#    #+#             */
-/*   Updated: 2023/03/04 17:15:59 by cmarcu           ###   ########.fr       */
+/*   Updated: 2023/03/06 21:17:21 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,9 @@ DiamondTrap::DiamondTrap(void) : ClapTrap(), ScavTrap(), FragTrap()
 {
     std::cout << "DiamondTrap default constructor called" << std::endl;
     
-    this->_energyPoints = ScavTrap::getEnergyPoints();
-    this->_hitPoints = FragTrap::getHitPoints();
-    this->_energyPoints = ScavTrap::getEnergyPoints();
-    this->_attackDamage = FragTrap::getAttackDamage();
+    this->_hitPoints = FragTrap::_HP;
+    this->_energyPoints = ScavTrap::_EP;
+    this->_attackDamage = FragTrap::_DP;
     
     return ;
 }
@@ -29,10 +28,9 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), Scav
     std::cout << "DiamondTrap name constructor called" << std::endl;
 
     this->_name = name;
-    this->_energyPoints = ScavTrap::getEnergyPoints();
-    this->_hitPoints = FragTrap::getHitPoints();
-    this->_energyPoints = ScavTrap::_energyPoints;
-    this->_attackDamage = FragTrap::getAttackDamage();
+    this->_hitPoints = FragTrap::_HP;
+    this->_energyPoints = ScavTrap::_EP;
+    this->_attackDamage = FragTrap::_DP;
 
     return ;
 }
@@ -46,9 +44,9 @@ DiamondTrap::DiamondTrap(DiamondTrap const &rhs) : ClapTrap(rhs), ScavTrap(rhs),
 
 DiamondTrap &DiamondTrap::operator=(DiamondTrap const &rhs)
 {
-       std::cout << "DiamondTrap assignation operator called" << std::endl;
+    std::cout << "DiamondTrap assignation operator called" << std::endl;
     if (this != &rhs)
-     ScavTrap::operator=(rhs); //check
+        ScavTrap::operator=(rhs); //check
 
     return *this;
 }

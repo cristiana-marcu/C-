@@ -20,6 +20,9 @@
 
 class ScavTrap : public virtual ClapTrap {
 
+protected:
+    static const int _EP = 50;
+
 public:
     ScavTrap( void );
     ScavTrap( std::string name );

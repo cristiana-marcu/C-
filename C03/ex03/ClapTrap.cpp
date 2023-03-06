@@ -6,7 +6,7 @@
 /*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 17:48:10 by cmarcu            #+#    #+#             */
-/*   Updated: 2023/03/04 13:55:43 by cmarcu           ###   ########.fr       */
+/*   Updated: 2023/03/06 21:08:37 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 ClapTrap::ClapTrap( void ) {
     
     std::cout << "Default constructor called" << std::endl;
-     this->_name = "TheNamelessScaryMonster";
+    this->_name = "TheNamelessScaryMonster";
     this->_hitPoints = 10;
     this->_energyPoints = 10;
     this->_attackDamage = 0;

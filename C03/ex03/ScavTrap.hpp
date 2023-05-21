@@ -11,28 +11,22 @@
 /* ************************************************************************** */
 
 #pragma once
-
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
-
 # include <iostream>
 # include "ClapTrap.hpp"
 
 class ScavTrap : public virtual ClapTrap {
 
 protected:
-    static const int _EP = 50;
+	static const int _EP = 50;
 
 public:
-    ScavTrap( void );
-    ScavTrap( std::string name );
-    ScavTrap( ScavTrap const & rhs );
-    ScavTrap & operator=( ScavTrap const & rhs );
-    ~ScavTrap();
+	ScavTrap( void );
+	ScavTrap( std::string name );
+	ScavTrap( ScavTrap const & rhs );
+	ScavTrap & operator=( ScavTrap const & rhs );
+	~ScavTrap();
 
-    void attack(std::string const & target);
-    void guardGate();
+	void attack(std::string const & target);
+	void guardGate();
 
 };
-
-#endif

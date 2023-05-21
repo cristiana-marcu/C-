@@ -11,27 +11,20 @@
 /* ************************************************************************** */
 
 #pragma once
-
-#ifndef FRAGTRAP_HPP
-#define FRAGTRAP_HPP
-
 # include <iostream>
 # include "ClapTrap.hpp"
 
 class FragTrap : public virtual ClapTrap {
 
 protected:
-    static const int _HP = 100;
-    static const int _DP = 30;
+	static const int _HP = 100;
+	static const int _DP = 30;
 public:
-    FragTrap( void );
-    FragTrap( std::string name );
-    FragTrap( FragTrap const & rhs );
-    FragTrap & operator=( FragTrap const & rhs );
-    ~FragTrap();
+	FragTrap( void );
+	FragTrap( std::string name );
+	FragTrap( FragTrap const & rhs );
+	FragTrap & operator=( FragTrap const & rhs );
+	~FragTrap();
 
-    void highFivesGuys();
-
+	void highFivesGuys();
 };
-
-#endif

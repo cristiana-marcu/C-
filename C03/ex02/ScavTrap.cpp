@@ -14,22 +14,22 @@
 
 ScavTrap::ScavTrap(void) : ClapTrap()
 {
-    std::cout << "ScavTrap default constructor called" << std::endl;
-    this->_hitPoints = 100;
-    this->_energyPoints = 50;
-    this->_attackDamage = 20;
-    
-    return ;
+	std::cout << "ScavTrap default constructor called" << std::endl;
+	this->_hitPoints = 100;
+	this->_energyPoints = 50;
+	this->_attackDamage = 20;
+
+	return ;
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
-    std::cout << "ScavTrap name constructor called" << std::endl;
-    this->_hitPoints = 100;
-    this->_energyPoints = 50;
-    this->_attackDamage = 20;
+	std::cout << "ScavTrap name constructor called" << std::endl;
+	this->_hitPoints = 100;
+	this->_energyPoints = 50;
+	this->_attackDamage = 20;
 
-    return ;
+	return ;
 }
 
 ScavTrap::ScavTrap(ScavTrap const &rhs) : ClapTrap(rhs)
@@ -62,7 +62,7 @@ void ScavTrap::guardGate()
 }
 
 void ScavTrap::attack(std::string const & target) {
-    
+
     std::cout << "ScavTrap " << this->getName() << " attacks " << target << ", causing " << this->getAttackDamage() << " points of damage!" << std::endl;
 
     return ;

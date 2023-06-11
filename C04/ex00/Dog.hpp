@@ -6,7 +6,7 @@
 /*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 13:05:42 by cmarcu            #+#    #+#             */
-/*   Updated: 2023/06/11 13:36:22 by cmarcu           ###   ########.fr       */
+/*   Updated: 2023/06/11 15:35:23 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ public:
 	Dog( void );
 	Dog( Dog const & ref);
 	Dog & operator=(Dog const & rhs);
-	~Dog( void );
+	virtual ~Dog( void );
 
 	void makeSound( void ) const;
 	std::string getType( void ) const;

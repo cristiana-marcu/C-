@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cristianamarcu <cristianamarcu@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/11 21:13:10 by cristianama       #+#    #+#             */
-/*   Updated: 2023/06/12 21:20:54 by cristianama      ###   ########.fr       */
+/*   Created: 2023/06/12 20:37:18 by cristianama       #+#    #+#             */
+/*   Updated: 2023/06/12 21:36:18 by cristianama      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 # include <iostream>
+# include "AMateria.hpp"
 
-class AMateria
+class Ice : public AMateria 
 {
-protected:
-	std::string _type;
-	
 public:
-	AMateria( void );
-	AMateria(std::string const & type);
-	AMateria(AMateria const & ref);
-	AMateria & operator=(AMateria const & rhs);
-	~AMateria();
-	
-	std::string const & getType() const; //Returns the materia type
-	virtual AMateria* clone() const = 0;
-	virtual void use(ICharacter& target);
+	Ice();
+	Ice( Ice const & rhs);
+	Ice & operator=( Ice const & rhs );
+	~Ice();
+
+	AMateria* clone() const;
+	void use(ICharacter& target);
 };

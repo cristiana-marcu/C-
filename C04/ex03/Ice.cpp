@@ -1,49 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cristianamarcu <cristianamarcu@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/11 21:12:46 by cristianama       #+#    #+#             */
-/*   Updated: 2023/06/12 21:33:16 by cristianama      ###   ########.fr       */
+/*   Created: 2023/06/12 21:12:48 by cristianama       #+#    #+#             */
+/*   Updated: 2023/06/12 21:42:33 by cristianama      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
+#include "Ice.hpp"
 
-AMateria::AMateria( void ) : _type("undefined") {}
+Ice::Ice( void ) : AMateria("ice") {}
 
-AMateria::AMateria( std::string const & type ) : _type(type)
+Ice::Ice( Ice const & rhs ) : AMateria("ice")
 {
-	std::cout << "AMateria of type " << this->_type << " created";
-
-	return ;
+	*this = rhs;
 }
 
-AMateria::AMateria(AMateria const &ref)
-{
-	*this = ref;
-
-	return ;
-}
-
-AMateria &AMateria::operator=(AMateria const &rhs)
+Ice &Ice::operator=(Ice const &rhs)
 {
 	if (this != &rhs)
 		this->_type = rhs.getType();
-	
+
 	return *this;
 }
 
-AMateria::~AMateria()
-{
-	std::cout << "AMateria of type " << this->_type << " destroyed";
+Ice::~Ice() {}
 
-	return ;
+AMateria *Ice::clone() const
+{
+	return (new Ice(*this));
 }
 
-std::string const &AMateria::getType() const
+void Ice::use(ICharacter &target)
 {
-	// TODO: Insertar una instrucción "return" aquí
+	std::cout << "* shoots an ice bolt at " << this->_type << " *";
 }

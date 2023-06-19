@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Character.hpp                                      :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cristianamarcu <cristianamarcu@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/12 21:06:02 by cristianama       #+#    #+#             */
-/*   Updated: 2023/06/19 22:41:57 by cristianama      ###   ########.fr       */
+/*   Created: 2023/06/19 22:13:56 by cristianama       #+#    #+#             */
+/*   Updated: 2023/06/19 22:50:15 by cristianama      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-# include "ICharacter.hpp"
+# include "IMateriaSource.hpp"
+# include "AMateria.hpp"
 
-class Character : public ICharacter
+class MateriaSource : public IMateriaSource
 {
 private:
-	std::string _name;
-	AMateria *_inventory[4];
+	AMateria *_materias[4];
 	
 public:
+	MateriaSource();
+	MateriaSource( MateriaSource const &ref );
+	MateriaSource &operator=( MateriaSource const &ref );
+	~MateriaSource();
 	
-	Character( std::string const & name );
-	Character( Character const & rhs );
-	Character & operator=( Character const & rhs );
-	~Character();
-	
-	std::string const & getName() const override;
-	void equip(AMateria* m) override;
-	void unequip(int idx) override;
-	void use(int idx, ICharacter& target) override;
+	void learnMateria(AMateria *m);
+	AMateria* createMateria(std::string const & type);
 };

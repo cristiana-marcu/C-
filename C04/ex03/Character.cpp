@@ -6,7 +6,7 @@
 /*   By: cristianamarcu <cristianamarcu@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 21:05:32 by cristianama       #+#    #+#             */
-/*   Updated: 2023/06/16 16:50:01 by cristianama      ###   ########.fr       */
+/*   Updated: 2023/06/19 22:41:44 by cristianama      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ Character::~Character()
 {
 	for (int i = 0; i < 4; i++)
 		if (this->_inventory[i])
-			delete [] _inventory[i];
+			delete [] this->_inventory[i];
 	std::cout << "Character " << this->_name << " destroyed" << std::endl;
 }
 
@@ -62,4 +62,13 @@ void Character::equip(AMateria *m)
 void Character::unequip(int idx)
 {
 	//Guardar las posiciones de memoria sin hacer delete de la materia
+}
+
+void Character::use(int idx, ICharacter& target)
+{
+	if (this->_inventory[idx])
+	{
+		std::cout << this->getName();
+		this->_inventory[idx]->use(target);
+	}
 }

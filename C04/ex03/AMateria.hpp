@@ -6,12 +6,13 @@
 /*   By: cristianamarcu <cristianamarcu@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 21:13:10 by cristianama       #+#    #+#             */
-/*   Updated: 2023/06/12 21:20:54 by cristianama      ###   ########.fr       */
+/*   Updated: 2023/06/19 22:17:42 by cristianama      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 # include <iostream>
+# include "ICharacter.hpp"
 
 class AMateria
 {

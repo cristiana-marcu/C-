@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cristianamarcu <cristianamarcu@student.    +#+  +:+       +#+        */
+/*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 21:12:46 by cristianama       #+#    #+#             */
-/*   Updated: 2023/06/12 21:33:16 by cristianama      ###   ########.fr       */
+/*   Updated: 2023/06/20 14:28:29 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ AMateria &AMateria::operator=(AMateria const &rhs)
 {
 	if (this != &rhs)
 		this->_type = rhs.getType();
-	
+
 	return *this;
 }
 
@@ -45,5 +45,10 @@ AMateria::~AMateria()
 
 std::string const &AMateria::getType() const
 {
-	// TODO: Insertar una instrucción "return" aquí
+	return this->_type;
+}
+
+void AMateria::use(ICharacter &target)
+{
+	std::cout << "AMateria of type " << this->getType() << " used on " << target.getName() << std::endl;
 }

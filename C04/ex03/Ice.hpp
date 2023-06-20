@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cristianamarcu <cristianamarcu@student.    +#+  +:+       +#+        */
+/*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 20:37:18 by cristianama       #+#    #+#             */
-/*   Updated: 2023/06/19 21:52:44 by cristianama      ###   ########.fr       */
+/*   Updated: 2023/06/20 14:34:44 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include "AMateria.hpp"
 # include "ICharacter.hpp"
 
-class Ice : public AMateria 
+class Ice : public AMateria
 {
 public:
 	Ice();
@@ -23,6 +23,6 @@ public:
 	Ice & operator=( Ice const & rhs );
 	~Ice();
 
-	AMateria* clone() const;
-	void use(ICharacter& target);
+	virtual AMateria* clone() const;
+	virtual void use(ICharacter& target);
 };

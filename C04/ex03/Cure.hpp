@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cristianamarcu <cristianamarcu@student.    +#+  +:+       +#+        */
+/*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 20:37:18 by cristianama       #+#    #+#             */
-/*   Updated: 2023/06/19 21:52:41 by cristianama      ###   ########.fr       */
+/*   Updated: 2023/06/20 14:34:49 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include "AMateria.hpp"
 # include "ICharacter.hpp"
 
-class Cure : public AMateria 
+class Cure : public AMateria
 {
 public:
 	Cure();
@@ -23,6 +23,6 @@ public:
 	Cure & operator=( Cure const & rhs );
 	~Cure();
 
-	AMateria* clone() const;
-	void use(ICharacter& target);
+	virtual AMateria* clone() const;
+	virtual void use(ICharacter& target);
 };

@@ -6,7 +6,7 @@
 /*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 21:05:32 by cristianama       #+#    #+#             */
-/*   Updated: 2023/06/20 19:15:59 by cmarcu           ###   ########.fr       */
+/*   Updated: 2023/06/20 19:56:34 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,5 @@ void Character::unequip(int idx)
 void Character::use(int idx, ICharacter& target)
 {
 	if (this->_inventory[idx])
-	{
-		std::cout << this->getName();
 		this->_inventory[idx]->use(target);
-	}
 }

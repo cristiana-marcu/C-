@@ -6,7 +6,7 @@
 /*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 22:58:42 by cristianama       #+#    #+#             */
-/*   Updated: 2023/06/20 19:44:32 by cmarcu           ###   ########.fr       */
+/*   Updated: 2023/06/20 19:55:05 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,6 @@
 #include "MateriaSource.hpp"
 #include "Ice.hpp"
 #include "Cure.hpp"
-
-void check_leaks()
-{
-	system("leaks materia");
-}
 
 int main()
 {
@@ -42,7 +37,6 @@ int main()
 	me->use(0, *bob);
 	me->use(1, *bob);
 
-	atexit(check_leaks);
 	delete bob;
 	delete me;
 	delete src;

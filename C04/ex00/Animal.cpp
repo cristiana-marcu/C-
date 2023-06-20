@@ -6,7 +6,7 @@
 /*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 12:40:37 by cmarcu            #+#    #+#             */
-/*   Updated: 2023/06/11 15:36:42 by cmarcu           ###   ########.fr       */
+/*   Updated: 2023/06/20 20:01:29 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,13 @@ Animal::Animal( Animal const & ref ) : _type(ref._type) {
 	std::cout << "Copy constructor called" << std::endl;
 
 	return ;
+}
+
+Animal& Animal::operator=(Animal const & ref)
+{
+	if (this != &ref)
+		this->_type = ref.getType();
+	return *this;
 }
 
 Animal::~Animal( void ) {

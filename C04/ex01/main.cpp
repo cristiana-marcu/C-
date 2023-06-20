@@ -6,7 +6,7 @@
 /*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 17:48:08 by cmarcu            #+#    #+#             */
-/*   Updated: 2023/06/11 18:30:19 by cmarcu           ###   ########.fr       */
+/*   Updated: 2023/06/20 20:09:17 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int main( void ) {
 
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
+
+	i.
 
 	delete j;
 	delete i;

@@ -6,14 +6,14 @@
 #    By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/03 17:47:41 by cmarcu            #+#    #+#              #
-#    Updated: 2023/06/11 15:56:50 by cmarcu           ###   ########.fr        #
+#    Updated: 2023/06/20 20:04:41 by cmarcu           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CFLAGS	=	-Wall -Wextra -Werror
 CC		=	c++ -std=c++98
 
-SRC		=	main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp
+SRC		=	main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
 OBJ		=	$(SRC:.cpp = .o)
 NAME	=	animal
 

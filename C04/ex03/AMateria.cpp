@@ -6,7 +6,7 @@
 /*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 21:12:46 by cristianama       #+#    #+#             */
-/*   Updated: 2023/06/20 14:28:29 by cmarcu           ###   ########.fr       */
+/*   Updated: 2023/06/20 19:18:03 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ AMateria::AMateria( void ) : _type("undefined") {}
 
 AMateria::AMateria( std::string const & type ) : _type(type)
 {
-	std::cout << "AMateria of type " << this->_type << " created";
+	std::cout << "AMateria of type " << this->_type << " created" << std::endl;
 
 	return ;
 }
@@ -38,7 +38,7 @@ AMateria &AMateria::operator=(AMateria const &rhs)
 
 AMateria::~AMateria()
 {
-	std::cout << "AMateria of type " << this->_type << " destroyed";
+	std::cout << "AMateria of type " << this->_type << " destroyed" << std::endl;
 
 	return ;
 }

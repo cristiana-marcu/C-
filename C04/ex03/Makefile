@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cristianamarcu <cristianamarcu@student.    +#+  +:+       +#+         #
+#    By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/03 17:47:41 by cmarcu            #+#    #+#              #
-#    Updated: 2023/06/19 22:58:33 by cristianama      ###   ########.fr        #
+#    Updated: 2023/06/20 19:10:49 by cmarcu           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CC		=	c++ -std=c++98
 
 SRC		=	main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
 OBJ		=	$(SRC:.cpp = .o)
-NAME	=	animal
+NAME	=	materia
 
 all:	$(NAME)
 

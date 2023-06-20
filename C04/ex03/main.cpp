@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cristianamarcu <cristianamarcu@student.    +#+  +:+       +#+        */
+/*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 22:58:42 by cristianama       #+#    #+#             */
-/*   Updated: 2023/06/19 22:59:37 by cristianama      ###   ########.fr       */
+/*   Updated: 2023/06/20 19:44:32 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,31 @@
 #include "Ice.hpp"
 #include "Cure.hpp"
 
+void check_leaks()
+{
+	system("leaks materia");
+}
+
 int main()
 {
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
+
 	ICharacter* me = new Character("me");
+
 	AMateria* tmp;
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
+
 	ICharacter* bob = new Character("bob");
+
 	me->use(0, *bob);
 	me->use(1, *bob);
+
+	atexit(check_leaks);
 	delete bob;
 	delete me;
 	delete src;

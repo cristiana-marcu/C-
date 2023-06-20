@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cristianamarcu <cristianamarcu@student.    +#+  +:+       +#+        */
+/*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 21:05:32 by cristianama       #+#    #+#             */
-/*   Updated: 2023/06/19 22:41:44 by cristianama      ###   ########.fr       */
+/*   Updated: 2023/06/20 19:15:59 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@ Character& Character::operator=( Character const & rhs)
 	return *this;
 }
 
-Character::~Character() 
+Character::~Character()
 {
 	for (int i = 0; i < 4; i++)
 		if (this->_inventory[i])
-			delete [] this->_inventory[i];
+			delete this->_inventory[i];
 	std::cout << "Character " << this->_name << " destroyed" << std::endl;
 }
 
@@ -61,7 +61,9 @@ void Character::equip(AMateria *m)
 
 void Character::unequip(int idx)
 {
-	//Guardar las posiciones de memoria sin hacer delete de la materia
+	if (this->_inventory[idx])
+		this->_inventory[idx] = NULL;
+	return ;
 }
 
 void Character::use(int idx, ICharacter& target)

@@ -6,7 +6,7 @@
 /*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 13:07:52 by cmarcu            #+#    #+#             */
-/*   Updated: 2023/06/11 18:19:05 by cmarcu           ###   ########.fr       */
+/*   Updated: 2023/06/21 20:07:03 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ Dog::~Dog(void)
 {
 	std::cout << "Dog destroyed" << std::endl;
 	delete this->_brain;
-	
+
 	return ;
 }
 
@@ -58,4 +58,9 @@ void Dog::makeSound(void) const
 std::string Dog::getType(void) const
 {
 	return this->_type;
+}
+
+Brain * Dog::getBrain(void) const
+{
+	return this->_brain;
 }

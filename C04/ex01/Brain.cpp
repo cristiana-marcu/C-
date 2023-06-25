@@ -6,7 +6,7 @@
 /*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 16:09:13 by cmarcu            #+#    #+#             */
-/*   Updated: 2023/06/11 18:25:07 by cmarcu           ###   ########.fr       */
+/*   Updated: 2023/06/21 19:51:31 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,15 @@ Brain::~Brain(void)
 	std::cout << "Brain destroyed" << std::endl;
 }
 
-std::string *Brain::getIdeas()
+std::string Brain::getIdea(int i)
 {
-	return this->_ideas;
+	if (i >= 0 && i < 100)
+		return this->_ideas[i];
+	return NULL;
+}
+
+void Brain::setIdea(int i, std::string idea)
+{
+	if (i >= 0 && i < 100)
+		this->_ideas[i] = idea;
 }

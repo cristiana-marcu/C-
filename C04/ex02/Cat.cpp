@@ -6,7 +6,7 @@
 /*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 13:27:27 by cmarcu            #+#    #+#             */
-/*   Updated: 2023/06/11 18:17:16 by cmarcu           ###   ########.fr       */
+/*   Updated: 2023/06/21 20:07:28 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,9 @@ void Cat::makeSound(void) const
 std::string Cat::getType(void) const
 {
 	return this->_type;
+}
+
+Brain * Cat::getBrain(void) const
+{
+	return this->_brain;
 }

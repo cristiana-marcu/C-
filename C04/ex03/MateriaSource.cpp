@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cristianamarcu <cristianamarcu@student.    +#+  +:+       +#+        */
+/*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 22:13:25 by cristianama       #+#    #+#             */
-/*   Updated: 2023/06/19 22:56:47 by cristianama      ###   ########.fr       */
+/*   Updated: 2023/06/20 19:35:04 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ MateriaSource& MateriaSource::operator=( MateriaSource const & ref )
 	if (this != &ref)
 		for (int i = 0; i < 4; i++)
 			this->_materias[i] = ref._materias[i];
-	
+
 	return *this;
 }
 
@@ -37,7 +37,7 @@ MateriaSource::~MateriaSource()
 {
 	for (int i = 0; i < 4; i++)
 		if (this->_materias[i])
-			delete [] this->_materias[i];
+			delete this->_materias[i];
 }
 
 void MateriaSource::learnMateria( AMateria *m )
@@ -50,6 +50,7 @@ void MateriaSource::learnMateria( AMateria *m )
 			return ;
 		}
 	}
+	return ;
 }
 
 AMateria *MateriaSource::createMateria( std::string const & type )

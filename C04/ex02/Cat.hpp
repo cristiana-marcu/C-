@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cristianamarcu <cristianamarcu@student.    +#+  +:+       +#+        */
+/*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 13:29:06 by cmarcu            #+#    #+#             */
-/*   Updated: 2023/06/11 20:53:37 by cristianama      ###   ########.fr       */
+/*   Updated: 2023/06/21 20:06:42 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ public:
 
 	void makeSound( void ) const;
 	std::string getType( void ) const;
-
+	Brain *getBrain( void ) const;
 };

@@ -6,7 +6,7 @@
 /*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 13:29:06 by cmarcu            #+#    #+#             */
-/*   Updated: 2023/06/11 15:35:42 by cmarcu           ###   ########.fr       */
+/*   Updated: 2023/06/20 20:02:54 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ public:
 	Cat( void );
 	Cat( Cat const & ref);
 	Cat & operator=(Cat const & rhs);
-	virtual ~Cat( void );
+	~Cat( void );
 
 	void makeSound( void ) const;
 	std::string getType( void ) const;

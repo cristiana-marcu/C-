@@ -6,7 +6,7 @@
 /*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 16:09:10 by cmarcu            #+#    #+#             */
-/*   Updated: 2023/06/11 18:10:03 by cmarcu           ###   ########.fr       */
+/*   Updated: 2023/06/21 19:51:18 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ public:
 	Brain & operator=( Brain const & rhs );
 	~Brain();
 
-	std::string *getIdeas();
+	std::string getIdea(int i);
+	void setIdea(int i, std::string idea);
 };

@@ -6,7 +6,7 @@
 /*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 13:05:42 by cmarcu            #+#    #+#             */
-/*   Updated: 2023/06/11 18:22:27 by cmarcu           ###   ########.fr       */
+/*   Updated: 2023/06/21 19:32:34 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ public:
 
 	void makeSound( void ) const;
 	std::string getType( void ) const;
-
+	Brain *getBrain( void ) const;
 };

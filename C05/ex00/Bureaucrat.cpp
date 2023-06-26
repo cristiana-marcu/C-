@@ -6,7 +6,7 @@
 /*   By: cristianamarcu <cristianamarcu@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 23:50:55 by cristianama       #+#    #+#             */
-/*   Updated: 2023/06/26 00:12:28 by cristianama      ###   ########.fr       */
+/*   Updated: 2023/06/26 21:38:18 by cristianama      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Bureaucrat::Bureaucrat() {}
 
-Bureaucrat::Bureaucrat( std::string name, int range ) : _name(name), _range(range)
+Bureaucrat::Bureaucrat( std::string name, int range ) : _name(name), _grade(range)
 {
 	if (range < 1)
 		throw Bureaucrat::GradeTooLowException();
@@ -22,13 +22,13 @@ Bureaucrat::Bureaucrat( std::string name, int range ) : _name(name), _range(rang
 		throw Bureaucrat::GradeTooHighException();
 }
 
-Bureaucrat::Bureaucrat( Bureaucrat const &src ) : _name(src._name), _range(src._range)
+Bureaucrat::Bureaucrat( Bureaucrat const &src ) : _name(src._name), _grade(src._grade)
 {}
 
 Bureaucrat& Bureaucrat::operator=( Bureaucrat const &rhs) 
 {
 	if (this != &rhs)
-		_range = rhs._range;
+		_grade = rhs._grade;
 	return (*this);
 }
 
@@ -39,28 +39,28 @@ std::string Bureaucrat::getName( void ) const
 	return _name;
 }
 
-int Bureaucrat::getRange( void ) const
+int Bureaucrat::getGrade( void ) const
 {
-	return _range;
+	return _grade;
 }
 
-void Bureaucrat::incrementRange( int amount )
+void Bureaucrat::incrementGrade( int amount )
 {
-	if (_range - amount < 1)
+	if (_grade - amount < 1)
 		throw Bureaucrat::GradeTooLowException();
-	_range--;
+	_grade--;
 }
 
 
-void Bureaucrat::decrementRange( int amount )
+void Bureaucrat::decrementGrade( int amount )
 {
-	if (_range + amount > 150)
+	if (_grade + amount > 150)
 		throw Bureaucrat::GradeTooHighException();
-	_range++;
+	_grade++;
 }
 
 std::ostream &operator<<( std::ostream& o, const Bureaucrat& rhs)
 {
-	o << rhs.getName() << ", bureaucrat grade " << rhs.getRange() << std::endl;
+	o << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << std::endl;
 	return o;
 }

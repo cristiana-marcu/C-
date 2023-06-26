@@ -3,24 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
+/*   By: cristianamarcu <cristianamarcu@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 17:48:08 by cmarcu            #+#    #+#             */
-/*   Updated: 2023/06/26 19:08:04 by cmarcu           ###   ########.fr       */
+/*   Updated: 2023/06/26 21:56:36 by cristianama      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main( void ) {
 
-	Bureaucrat *pepe = new Bureaucrat("Pepe", 5);
-	Bureaucrat *pep0 = new Bureaucrat("Pep0", 1);
-	Bureaucrat *pepiii = new Bureaucrat("Pepiii", 145);
-
-	std::cout << *pepe;
-	std::cout << *pep0;
-	std::cout << *pepiii;
+	try
+	{
+		Bureaucrat pepe("Pepe", 5);
+		Form fine("Traffic fine", 23, 12);
+		pepe.signForm(fine);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 
 	return 0;
 }

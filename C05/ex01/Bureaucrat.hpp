@@ -6,18 +6,21 @@
 /*   By: cristianamarcu <cristianamarcu@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 09:18:23 by cristianama       #+#    #+#             */
-/*   Updated: 2023/06/26 00:12:19 by cristianama      ###   ########.fr       */
+/*   Updated: 2023/06/26 21:55:38 by cristianama      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 # include <iostream>
+# include "Form.hpp"
+
+class Form;
 
 class Bureaucrat 
 {
 private:
 	const std::string _name;
-	int _range;
+	int _grade;
 	
 public:
 	Bureaucrat();
@@ -27,9 +30,9 @@ public:
 	~Bureaucrat();
 
 	std::string getName() const;
-	int getRange() const;
-	void incrementRange(int amount);
-	void decrementRange(int amount);
+	int getGrade() const;
+	void incrementGrade(int amount);
+	void decrementGrade(int amount);
 
 	class GradeTooHighException : public std::exception
 	{
@@ -48,7 +51,8 @@ public:
 			return "Grade is too low";
 		}
 	};
-
+	
+	void signForm( Form &form );
 };
 
 std::ostream& operator<<( std::ostream& o, const Bureaucrat& rhs);

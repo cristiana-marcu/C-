@@ -6,7 +6,7 @@
 /*   By: cristianamarcu <cristianamarcu@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 23:50:55 by cristianama       #+#    #+#             */
-/*   Updated: 2023/06/26 21:38:18 by cristianama      ###   ########.fr       */
+/*   Updated: 2023/06/26 22:06:51 by cristianama      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 Bureaucrat::Bureaucrat() {}
 
-Bureaucrat::Bureaucrat( std::string name, int range ) : _name(name), _grade(range)
+Bureaucrat::Bureaucrat( std::string name, int grade ) : _name(name), _grade(grade)
 {
-	if (range < 1)
+	if (grade < 1)
 		throw Bureaucrat::GradeTooLowException();
-	if (range > 150)
+	if (grade > 150)
 		throw Bureaucrat::GradeTooHighException();
 }
 

@@ -6,7 +6,7 @@
 /*   By: cristianamarcu <cristianamarcu@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 19:12:49 by cmarcu            #+#    #+#             */
-/*   Updated: 2023/06/27 20:39:33 by cristianama      ###   ########.fr       */
+/*   Updated: 2023/06/27 21:49:45 by cristianama      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ std::string AForm::getName( void ) const
 	return _name;
 }
 
-bool AForm::getSigned( void )
+bool AForm::getSigned( void ) const
 {
 	return _signed;
 }

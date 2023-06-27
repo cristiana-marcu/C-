@@ -6,7 +6,7 @@
 /*   By: cristianamarcu <cristianamarcu@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 15:30:49 by cristianama       #+#    #+#             */
-/*   Updated: 2023/06/27 20:30:20 by cristianama      ###   ########.fr       */
+/*   Updated: 2023/06/27 22:19:16 by cristianama      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ ShrubberyCreationForm::ShrubberyCreationForm() {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string const target) : AForm("ShrubberyCreation", 145, 137), _target(target) {}
 
-ShrubberyCreationForm::ShrubberyCreationForm( ShrubberyCreationForm& const ref ) : _target(ref.getTarget()) {}
+ShrubberyCreationForm::ShrubberyCreationForm( ShrubberyCreationForm const & ref ) : AForm(ref), _target(ref.getTarget()) {}
 
-ShrubberyCreationForm& ShrubberyCreationForm::operator=( ShrubberyCreationForm& const rhs )
+ShrubberyCreationForm& ShrubberyCreationForm::operator=( ShrubberyCreationForm const & rhs )
 {
 	if (this != &rhs)
 		_target = rhs.getTarget();
@@ -33,12 +33,31 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=( ShrubberyCreationForm& 
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
-std::string ShrubberyCreationForm::getTarget() { return _target; }
+std::string ShrubberyCreationForm::getTarget() const { return _target; }
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
-	if (!(this->getSigned()))
+	if (this->getSigned() == false)
 		throw AForm::NotSignedException();
-	else if (executor.getGrade() )
+	else if (executor.getGrade() > this->getExecGrade())
+		throw AForm::GradeTooLowException();
 	
+	std::ofstream outputFile(this->_target);
+	if (!outputFile.is_open())
+	{
+		std::cout << "Error opening file: " << this->_target << std::endl;
+		return ;
+	}
+	
+	outputFile << "       _-_" << std::endl;
+    outputFile << "    /~~   ~~\\" << std::endl;
+    outputFile << " /~~         ~~\\" << std::endl;
+    outputFile << "{               }" << std::endl;
+    outputFile << " \\  _-     -_  /" << std::endl;
+    outputFile << "   ~  \\\\ //  ~" << std::endl;
+    outputFile << "_- -   | | _- _" << std::endl;
+    outputFile << "  _ -  | |   -_" << std::endl;
+    outputFile << "      \\\\ \\\\" << std::endl;
+
+	outputFile.close();
 }

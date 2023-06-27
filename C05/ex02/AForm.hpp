@@ -6,7 +6,7 @@
 /*   By: cristianamarcu <cristianamarcu@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 19:12:51 by cmarcu            #+#    #+#             */
-/*   Updated: 2023/06/27 20:40:46 by cristianama      ###   ########.fr       */
+/*   Updated: 2023/06/27 21:49:23 by cristianama      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ public:
 	virtual ~AForm();
 
 	std::string getName() const;
-	bool getSigned();
+	bool getSigned() const;
 	int getSignGrade() const;
 	int getExecGrade() const;
 

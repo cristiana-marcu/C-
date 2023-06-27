@@ -6,7 +6,7 @@
 /*   By: cristianamarcu <cristianamarcu@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 19:12:49 by cmarcu            #+#    #+#             */
-/*   Updated: 2023/06/27 15:29:32 by cristianama      ###   ########.fr       */
+/*   Updated: 2023/06/27 20:39:33 by cristianama      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,10 @@ void AForm::beSigned( Bureaucrat& ref )
 	if (ref.getGrade() > _sign_grade)
 		throw AForm::GradeTooLowException();
 	_signed = true;
+}
+
+std::ostream& operator<<(std::ostream& o, const AForm& rhs)
+{
+	o << rhs.getName();
+	return o;
 }

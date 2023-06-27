@@ -6,7 +6,7 @@
 /*   By: cristianamarcu <cristianamarcu@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 19:12:51 by cmarcu            #+#    #+#             */
-/*   Updated: 2023/06/27 15:34:30 by cristianama      ###   ########.fr       */
+/*   Updated: 2023/06/27 20:40:46 by cristianama      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ public:
 	AForm( std::string name, int sign_grade, int exec_grade );
 	AForm( AForm const &ref );
 	AForm& operator=( AForm const &ref );
-	~AForm();
+	virtual ~AForm();
 
 	std::string getName() const;
 	bool getSigned();
@@ -53,8 +53,17 @@ public:
 		}
 	};
 
+	class NotSignedException : public std::exception
+	{
+	public:
+		virtual const char* what() const throw()
+		{
+			return "Form is not signed";
+		}
+	};
+
 	void beSigned(Bureaucrat& ref);
-	void execute(Bureaucrat const & executor) const;
+	virtual void execute(Bureaucrat const & executor) const = 0;
 };
 
-std::ostream& operator<<(std::ostream& o, const Bureaucrat& rhs);
+std::ostream& operator<<(std::ostream& o, const AForm& rhs);

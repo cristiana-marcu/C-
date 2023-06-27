@@ -6,15 +6,15 @@
 /*   By: cristianamarcu <cristianamarcu@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 09:18:23 by cristianama       #+#    #+#             */
-/*   Updated: 2023/06/27 15:36:22 by cristianama      ###   ########.fr       */
+/*   Updated: 2023/06/27 20:34:42 by cristianama      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 # include <iostream>
-# include "Form.hpp"
+# include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat 
 {
@@ -52,8 +52,8 @@ public:
 		}
 	};
 	
-	void signForm( Form &form );
-	void executeForm(Form const & form);
+	void signForm( AForm &form );
+	void executeForm( AForm const & form );
 };
 
 std::ostream& operator<<( std::ostream& o, const Bureaucrat& rhs);

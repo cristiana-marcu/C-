@@ -6,7 +6,7 @@
 /*   By: cristianamarcu <cristianamarcu@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 18:31:53 by cristianama       #+#    #+#             */
-/*   Updated: 2023/07/15 19:10:11 by cristianama      ###   ########.fr       */
+/*   Updated: 2023/07/15 19:57:41 by cristianama      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,33 +29,56 @@ ScalarConverter::~ScalarConverter() {}
 
 void ScalarConverter::convert(const std::string &literal)
 {
-	if (literal.length() == 1 && std::isprint(literal[0]))
+	std::string strNoSuffix = (literal[literal.size()-1] == 'f') ? literal.substr(0, literal.size() - 1) : literal;
+	
+	if (literal.length() == 1 && std::isprint(literal[0]) && !std::isdigit(literal[0]))
 		std::cout << "char: " << literal[0] << std::endl;
 	else
-		std::cout << "char: Non displayable or impossible" << std::endl;
+	{
+		double d;
+		std::istringstream iSSChar(strNoSuffix); // strFloat se definió en el código anterior.
+		if (!(iSSChar >> d).fail()) {
+			// Comprobar que hemos llegado al final de la cadena.
+			std::string rest;
+			std::getline(iSSChar, rest);
+			if (rest.empty()) {
+				int i = static_cast<int>(d);
+				if (i >= 32 && i <= 126) {
+					std::cout << "char: '" << static_cast<char>(i) << "'" << std::endl;
+				} else {
+					std::cout << "char: Non displayable" << std::endl;
+				}
+			} else {
+				std::cout << "char: impossible" << std::endl;
+			}
+		} else {
+			std::cout << "char: impossible" << std::endl;
+		}
+
+	}
 	
-	std::istringstream iSSInt(literal);
+	std::istringstream iSSInt(strNoSuffix);
 	int i;
 	if (!(iSSInt >> i).fail())
 		std::cout << "int: " << i << std::endl;
 	else
 		std::cout << "int: impossible" << std::endl;
-
-	std::istringstream iSSFloat(literal);
+	
+	std::istringstream iSSFloat(strNoSuffix);
 	float f;
 	if (!(iSSFloat >> f).fail())
 	{
 		std::string rest;
 		std::getline(iSSFloat, rest);
 		if (rest.empty())
-			std::cout << "float: " << f << std::endl;
+			std::cout << std::fixed << "float: " << f << "f" << std::endl;
 		else
 			std::cout << "float: impossible" << std::endl;
 	}
 	else
 		std::cout << "float: impossible" << std::endl;
 	
-	std::istringstream iSSDouble(literal);
+	std::istringstream iSSDouble(strNoSuffix);
 	double d;
 	if (!(iSSDouble >> d).fail())
 	{

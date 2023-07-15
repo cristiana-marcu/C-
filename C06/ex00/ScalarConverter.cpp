@@ -6,7 +6,7 @@
 /*   By: cristianamarcu <cristianamarcu@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 18:31:53 by cristianama       #+#    #+#             */
-/*   Updated: 2023/07/15 19:57:41 by cristianama      ###   ########.fr       */
+/*   Updated: 2023/07/16 00:08:14 by cristianama      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,22 @@ ScalarConverter::~ScalarConverter() {}
 
 void ScalarConverter::convert(const std::string &literal)
 {
+	if (literal == "inf" || literal == "-inf" || literal == "nan")
+	{
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: " << literal << "f" << std::endl;
+		std::cout << "double: " << literal << std::endl;
+		return ;
+	}
+	if (literal == "inff" || literal == "-inff" || literal == "nanf")
+	{
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: " << literal << std::endl;
+		std::cout << "double: " << literal.substr(0, literal.size() - 1) << std::endl;
+		return ;
+	}
 	std::string strNoSuffix = (literal[literal.size()-1] == 'f') ? literal.substr(0, literal.size() - 1) : literal;
 	
 	if (literal.length() == 1 && std::isprint(literal[0]) && !std::isdigit(literal[0]))

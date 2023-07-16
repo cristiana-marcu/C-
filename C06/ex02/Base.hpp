@@ -6,13 +6,13 @@
 /*   By: cristianamarcu <cristianamarcu@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 22:17:46 by cristianama       #+#    #+#             */
-/*   Updated: 2023/07/16 22:18:22 by cristianama      ###   ########.fr       */
+/*   Updated: 2023/07/16 23:23:11 by cristianama      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 class Base {
-	private:
-		~Base();
+	public:
+		virtual ~Base() {};
 };

@@ -6,7 +6,7 @@
 /*   By: cristianamarcu <cristianamarcu@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 17:48:08 by cmarcu            #+#    #+#             */
-/*   Updated: 2023/07/16 21:53:55 by cristianama      ###   ########.fr       */
+/*   Updated: 2023/07/16 21:57:33 by cristianama      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int main( void ) {
 
 	data = Serializer::deserialize(rawData);
 	std::cout << "Data:      " << data << std::endl;
+	
+	std::cout << "Data:      " << Serializer::deserialize(Serializer::serialize(data)) << std::endl;
 	
 	return 0;
 }

@@ -6,10 +6,11 @@
 /*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 15:39:07 by cmarcu            #+#    #+#             */
-/*   Updated: 2023/07/23 16:02:06 by cmarcu           ###   ########.fr       */
+/*   Updated: 2023/07/23 17:54:40 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #include <iostream>
 
 template<typename T>

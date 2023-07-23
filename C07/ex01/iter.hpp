@@ -6,10 +6,11 @@
 /*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 15:39:07 by cmarcu            #+#    #+#             */
-/*   Updated: 2023/07/23 16:39:59 by cmarcu           ###   ########.fr       */
+/*   Updated: 2023/07/23 17:54:33 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #include <iostream>
 
 /*Implement a function template iter that takes 3 parameters and returns nothing.

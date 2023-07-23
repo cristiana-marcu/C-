@@ -6,7 +6,7 @@
 /*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 15:37:46 by cmarcu            #+#    #+#             */
-/*   Updated: 2023/07/23 18:27:32 by cmarcu           ###   ########.fr       */
+/*   Updated: 2023/07/23 18:35:13 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,20 @@ int main() {
 	// Copiamos el Array de tamaño 5 al Array vacío usando el operador de asignación
 	intArray = intArray2;
 	std::cout << "Tamaño del Array vacío después de la copia: " << intArray.size() << std::endl;
+
+	try {
+	// Creamos un Array de ints de tamaño 5
+	Array<int> intArray(5);
+
+	// Establecemos el valor del primer elemento
+	intArray[0] = 10;
+	std::cout << "Primer elemento del Array: " << intArray[0] << std::endl;
+
+	// Intentamos acceder a un índice fuera de rango
+	intArray[5] = 20;  // Debería lanzar una excepción
+} catch (const std::out_of_range& e) {
+	std::cout << "Error: " << e.what() << std::endl;
+    }
 
 	return 0;
 }

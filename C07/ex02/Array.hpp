@@ -6,7 +6,7 @@
 /*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 15:39:07 by cmarcu            #+#    #+#             */
-/*   Updated: 2023/07/23 18:27:10 by cmarcu           ###   ########.fr       */
+/*   Updated: 2023/07/23 18:37:14 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,13 @@ class Array {
 					_p[i] = rhs._p[i];
 			}
 			return *this;
+		}
+
+		T& operator[](int index)
+		{
+			if (index < 0 || index >= static_cast<int>(_size))
+				throw (std::out_of_range("out of range"));
+			return _p[index];
 		}
 
 		~Array()

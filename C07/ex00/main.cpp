@@ -6,11 +6,11 @@
 /*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 15:37:46 by cmarcu            #+#    #+#             */
-/*   Updated: 2023/07/23 15:57:44 by cmarcu           ###   ########.fr       */
+/*   Updated: 2023/07/24 14:54:37 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "whatever.hpp"
+#include "functions.hpp"
 #include <iostream>
 
 int main ( void )
@@ -30,4 +30,3 @@ int main ( void )
 
 	return 0;
 }
-

@@ -6,7 +6,7 @@
 /*   By: cmarcu <cmarcu@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 15:39:07 by cmarcu            #+#    #+#             */
-/*   Updated: 2023/07/23 17:54:40 by cmarcu           ###   ########.fr       */
+/*   Updated: 2023/07/24 14:30:19 by cmarcu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ T min(T const &x, T const &y)
 }
 
 template<typename T>
-T max(T const &x, T const y)
+T max(T const &x, T const &y)
 {
 	return ((x > y) ? x : y);
 }

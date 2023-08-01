@@ -6,28 +6,30 @@
 /*   By: cristianamarcu <cristianamarcu@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 16:27:14 by cristianama       #+#    #+#             */
-/*   Updated: 2023/08/01 17:07:44 by cristianama      ###   ########.fr       */
+/*   Updated: 2023/08/01 22:52:34 by cristianama      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <iostream>
 #include <algorithm>
-#include <vector>
+#include <list>
 
 class Span {
 	private:
-		std::vector<int> _storage;
+		std::list<int> _storage;
 		unsigned int _size;
 		
-	public:
 		Span();
+		
+	public:
 		Span( unsigned int size );
-		Span( Span const & ref );
+		Span( const Span & ref );
 		Span& operator=( Span const & rhs );
 		~Span();
 
 		void addNumber( int n );
+		void addRange( std::list<int>::const_iterator, std::list<int>::const_iterator );
 		int shortestSpan();
 		int longestSpan();
 

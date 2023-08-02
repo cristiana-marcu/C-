@@ -6,16 +6,16 @@
 #    By: cristianamarcu <cristianamarcu@student.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/03 17:47:41 by cmarcu            #+#    #+#              #
-#    Updated: 2023/08/02 16:43:27 by cristianama      ###   ########.fr        #
+#    Updated: 2023/08/02 16:43:52 by cristianama      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CFLAGS	=	-Wall -Wextra -Werror
 CC		=	c++ -std=c++98
 
-SRC		=	main.cpp Span.cpp
+SRC		=	main.cpp MutantStack.cpp
 OBJ		=	$(SRC:.cpp = .o)
-NAME	=	span
+NAME	=	iterableStack
 
 all:	$(NAME)
 

@@ -6,7 +6,7 @@
 /*   By: cristianamarcu <cristianamarcu@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 16:57:24 by cristianama       #+#    #+#             */
-/*   Updated: 2023/08/01 22:59:29 by cristianama      ###   ########.fr       */
+/*   Updated: 2023/08/02 16:33:23 by cristianama      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,42 @@ void Span::addNumber( int n ) {
 	_storage.push_back(n);
 }
 
-void Span::addRange( std::list<int>::const_iterator iBegin, std::list<int>::const_iterator iEnd ) {
+void Span::addRange( std::vector<int>::const_iterator iBegin, std::vector<int>::const_iterator iEnd ) {
+	while (iBegin != iEnd && _storage.size() < _size) {
+		_storage.push_back(*iBegin);
+		++iBegin;
+	}
 	if (_storage.size() > _size)
 		throw Span::AlreadyFullException();
-	_storage.insert(_storage.end(), iBegin, iEnd);
+}
+
+int Span::longestSpan( void ) {
+	if (_storage.size() < 2)
+		throw Span::NoSpanFoundException();
+	
+	int min = *std::min_element(_storage.begin(), _storage.end());
+	int max = *std::max_element(_storage.begin(), _storage.end());
+	return max-min;
+}
+
+int Span::shortestSpan( void ) {
+	if (_storage.size() < 2)
+		throw Span::NoSpanFoundException();
+	
+	std::sort(_storage.begin(), _storage.end());
+	
+	int min_span = Span::longestSpan();
+	for (std::vector<int>::const_iterator i = _storage.begin(); i != (_storage.end() - 1); ++i) {
+		int span = *(i + 1) - *i;
+		if (span < min_span)
+			min_span = span;
+	}
+	return min_span;
+}
+
+void Span::printElements() const {
+    for (std::vector<int>::const_iterator i = _storage.begin(); i != _storage.end(); ++i) {
+        std::cout << *i << " ";
+    }
+    std::cout << std::endl;
 }

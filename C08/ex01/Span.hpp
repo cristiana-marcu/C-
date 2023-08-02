@@ -6,18 +6,19 @@
 /*   By: cristianamarcu <cristianamarcu@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 16:27:14 by cristianama       #+#    #+#             */
-/*   Updated: 2023/08/01 22:52:34 by cristianama      ###   ########.fr       */
+/*   Updated: 2023/08/02 16:32:18 by cristianama      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <iostream>
 #include <algorithm>
-#include <list>
+#include <vector>
+#include <ctime>
 
 class Span {
 	private:
-		std::list<int> _storage;
+		std::vector<int> _storage;
 		unsigned int _size;
 		
 		Span();
@@ -29,9 +30,11 @@ class Span {
 		~Span();
 
 		void addNumber( int n );
-		void addRange( std::list<int>::const_iterator, std::list<int>::const_iterator );
+		void addRange( std::vector<int>::const_iterator, std::vector<int>::const_iterator );
 		int shortestSpan();
 		int longestSpan();
+
+		void printElements() const;
 
 		class AlreadyFullException : public std::exception {
 			public:

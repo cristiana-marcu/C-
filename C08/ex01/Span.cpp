@@ -6,7 +6,7 @@
 /*   By: cristianamarcu <cristianamarcu@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 16:57:24 by cristianama       #+#    #+#             */
-/*   Updated: 2023/08/02 16:33:23 by cristianama      ###   ########.fr       */
+/*   Updated: 2023/08/03 12:45:50 by cristianama      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +58,20 @@ int Span::shortestSpan( void ) {
 	if (_storage.size() < 2)
 		throw Span::NoSpanFoundException();
 	
-	std::sort(_storage.begin(), _storage.end());
+	std::vector<int> temp(_storage.begin(), _storage.end());
+	std::sort(temp.begin(), temp.end());
 	
-	int min_span = Span::longestSpan();
-	for (std::vector<int>::const_iterator i = _storage.begin(); i != (_storage.end() - 1); ++i) {
-		int span = *(i + 1) - *i;
+	std::vector<int>::iterator it = temp.begin();
+	int prev_value = *it;
+	++it;
+	int min_span = *it - prev_value;
+	
+	for (; it != temp.end(); ++it) {
+		int current_value = *it;
+		int span = current_value - prev_value;
 		if (span < min_span)
 			min_span = span;
+		prev_value = current_value;
 	}
 	return min_span;
 }

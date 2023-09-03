@@ -6,11 +6,18 @@
 /*   By: cristianamarcu <cristianamarcu@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 20:45:26 by cristianama       #+#    #+#             */
-/*   Updated: 2023/09/01 23:08:00 by cristianama      ###   ########.fr       */
+/*   Updated: 2023/09/01 23:16:52 by cristianama      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
+
+BitcoinExchange::BitcoinExchange()
+{
+	
+}
+
+BitcoinExchange::~BitcoinExchange() {}
 
 bool BitcoinExchange::loadDataBase(const std::string &db_file)
 {

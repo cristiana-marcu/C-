@@ -6,7 +6,7 @@
 /*   By: cristianamarcu <cristianamarcu@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 20:45:26 by cristianama       #+#    #+#             */
-/*   Updated: 2023/10/20 21:49:45 by cristianama      ###   ########.fr       */
+/*   Updated: 2023/10/21 11:57:52 by cristianama      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,8 +93,16 @@ void BitcoinExchange::evaluateInputFile(std::ifstream &filename)
     while (std::getline(filename, line)) {
         std::stringstream ss(line);
 		
-        if (!std::getline(ss, date, '|')) continue; // Ensure we can read date
-        if (!std::getline(ss, valueString, '|')) continue; // Ensure we can read value
+        if (!std::getline(ss, date, '|')) {
+			std::cerr << "Error: bad input => " << line << std::endl;
+			continue; 
+		}
+		std::getline(ss, valueString); // Read the rest of the line to get value
+
+		if (valueString.empty()) {
+			std::cerr << "Error: bad input => " << line << std::endl;
+			continue;
+		}
 
         date = date.substr(0, date.find_last_not_of(" ") + 1);
         valueString = valueString.substr(valueString.find_first_not_of(" "));
@@ -103,9 +111,14 @@ void BitcoinExchange::evaluateInputFile(std::ifstream &filename)
             std::cerr << "Error: bad input => " << date << std::endl;
             continue;
         }
-
+		size_t processedChars = 0;
         try {
-            value = std::stod(valueString);
+            value = std::stod(valueString, &processedChars);
+
+			if (valueString.find_first_not_of(" ", processedChars) != std::string::npos) {
+				std::cerr << "Error: bad value format => " << valueString << std::endl;
+				continue;
+			}
             if (value < 0) {
                 std::cerr << "Error: not a positive number." << std::endl;
                 continue;

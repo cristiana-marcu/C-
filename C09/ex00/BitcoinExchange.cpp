@@ -6,7 +6,7 @@
 /*   By: cristianamarcu <cristianamarcu@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 20:45:26 by cristianama       #+#    #+#             */
-/*   Updated: 2023/10/21 11:57:52 by cristianama      ###   ########.fr       */
+/*   Updated: 2023/10/21 13:31:58 by cristianama      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,7 @@ bool BitcoinExchange::loadDataBase(const std::string &db_file)
 	std::ifstream infile(db_file);
 	if (!infile.is_open())
 		return false;
-	
-	// Use a map to store the data with the date as the key and the rate as the value
-    std::map<std::string, float> exchange_rates;
-
+		
     std::string line, date;
     float rate;
 
@@ -39,10 +36,8 @@ bool BitcoinExchange::loadDataBase(const std::string &db_file)
         std::getline(ss, date, ',');  // Read until the comma to get the date
         ss >> rate;                   // Read the rest to get the rate
 
-        exchange_rates[date] = rate;
+        _exchange_rates[date] = rate;
     }
-
-	_exchange_rates = exchange_rates;
 	
 	return true;
 }
@@ -130,7 +125,7 @@ void BitcoinExchange::evaluateInputFile(std::ifstream &filename)
             }
 
 			std::string closestDate = nearestDate(_exchange_rates, date);
-            double rate = _exchange_rates[closestDate];
+			double rate = _exchange_rates[closestDate];
             double resultValue = value * rate;
             std::cout << date << " => " << value << " = " << resultValue << std::endl;
 
@@ -145,19 +140,36 @@ std::string BitcoinExchange::nearestDate(const std::map<std::string, float>& exc
     std::string nearest;
 
     for (std::map<std::string, float>::const_iterator it = exchangeRates.begin(); it != exchangeRates.end(); ++it) {
-        int distance = std::abs(dateDifference(targetDate, it->first));
+        int distance = dateDifference(targetDate, it->first);
+        if (distance < 0) distance = -distance; // Take the absolute value
+
         if (distance < minDifference) {
             minDifference = distance;
             nearest = it->first;
         }
     }
-    
+	
     return nearest;
 }
+
 
 // Función auxiliar para determinar si un año es bisiesto
 bool isLeapYear(int year) {
     return (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
+}
+
+// Helper function to get the number of days up to a certain date within the year
+int daysUptoDate(int year, int month, int day) {
+    int daysInMonth[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    if (isLeapYear(year)) {
+        daysInMonth[2] = 29;
+    }
+
+    int days = 0;
+    for (int i = 0; i < month; ++i) {
+        days += daysInMonth[i];
+    }
+    return days + day;
 }
 
 int BitcoinExchange::dateDifference(const std::string &date1, const std::string &date2) {
@@ -178,6 +190,15 @@ int BitcoinExchange::dateDifference(const std::string &date1, const std::string 
     ss2.ignore(); // skip the '-'
     ss2 >> day2;
 
-    // Return the difference in days
-    return (year1 - year2) * 365 + (month1 - month2) * 30 + (day1 - day2);
+	int days1 = year1 * 365 + daysUptoDate(year1, month1, day1) + (year1 / 4);  // Roughly adding days for leap years
+	int days2 = year2 * 365 + daysUptoDate(year2, month2, day2) + (year2 / 4);  // This is a simplified leap year calculation
+
+    // Compute the difference in days between the two dates, 
+    // accounting for leap years in between if necessary
+    int dayDiff = days1 - days2;
+    // for (int y = year2; y < year1; y++) {
+    //     dayDiff += isLeapYear(y) ? 366 : 365;
+    // }
+
+    return dayDiff;
 }

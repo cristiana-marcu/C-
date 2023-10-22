@@ -6,18 +6,26 @@
 /*   By: cristianamarcu <cristianamarcu@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 20:45:26 by cristianama       #+#    #+#             */
-/*   Updated: 2023/10/21 13:31:58 by cristianama      ###   ########.fr       */
+/*   Updated: 2023/10/22 14:18:44 by cristianama      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
-BitcoinExchange::BitcoinExchange()
-{
-	
-}
+BitcoinExchange::BitcoinExchange() {}
 
 BitcoinExchange::~BitcoinExchange() {}
+
+BitcoinExchange::BitcoinExchange(BitcoinExchange const & ref) {
+    _exchange_rates = ref._exchange_rates;
+}
+
+BitcoinExchange& BitcoinExchange::operator=(BitcoinExchange const & rhs) {
+    if (this != &rhs) {
+        _exchange_rates = rhs._exchange_rates;
+    }
+    return *this;
+}
 
 bool BitcoinExchange::loadDataBase(const std::string &db_file)
 {
@@ -51,13 +59,12 @@ bool BitcoinExchange::validateDate(const std::string &date) {
     if (ss.get() != '-') return false;
     ss >> day;
 
-    // Basic date validation
     if (month < 1 || month > 12) return false;
 
     // Calculate the maximum day for the given month
     int maxDay;
     if (month == 2) {
-        // For February, consider a leap year check if necessary
+        // For February, leap year check
         if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
             maxDay = 29;
         } else {
@@ -80,7 +87,8 @@ void BitcoinExchange::evaluateInputFile(std::ifstream &filename)
 	std::string line, date, valueString;
     double value;
 	
-    if (!std::getline(filename, line)) { // Check if header line exists
+	// Check if header line exists
+    if (!std::getline(filename, line)) {
         std::cerr << "Error: File is empty or corrupted." << std::endl;
         return;
     }
@@ -88,12 +96,13 @@ void BitcoinExchange::evaluateInputFile(std::ifstream &filename)
     while (std::getline(filename, line)) {
         std::stringstream ss(line);
 		
+		// Read until | to get date
         if (!std::getline(ss, date, '|')) {
 			std::cerr << "Error: bad input => " << line << std::endl;
 			continue; 
 		}
-		std::getline(ss, valueString); // Read the rest of the line to get value
-
+		// Read and check the rest of the line to get value
+		std::getline(ss, valueString);
 		if (valueString.empty()) {
 			std::cerr << "Error: bad input => " << line << std::endl;
 			continue;
@@ -101,15 +110,14 @@ void BitcoinExchange::evaluateInputFile(std::ifstream &filename)
 
         date = date.substr(0, date.find_last_not_of(" ") + 1);
         valueString = valueString.substr(valueString.find_first_not_of(" "));
-
         if (!validateDate(date)) {
             std::cerr << "Error: bad input => " << date << std::endl;
             continue;
         }
+		
 		size_t processedChars = 0;
         try {
             value = std::stod(valueString, &processedChars);
-
 			if (valueString.find_first_not_of(" ", processedChars) != std::string::npos) {
 				std::cerr << "Error: bad value format => " << valueString << std::endl;
 				continue;
@@ -118,7 +126,6 @@ void BitcoinExchange::evaluateInputFile(std::ifstream &filename)
                 std::cerr << "Error: not a positive number." << std::endl;
                 continue;
             }
-
             if (value > 1000) {
                 std::cerr << "Error: too large a number." << std::endl;
                 continue;
@@ -128,7 +135,6 @@ void BitcoinExchange::evaluateInputFile(std::ifstream &filename)
 			double rate = _exchange_rates[closestDate];
             double resultValue = value * rate;
             std::cout << date << " => " << value << " = " << resultValue << std::endl;
-
         } catch (const std::exception &e) {
             std::cerr << "Error handling line '" << line << "': " << e.what() << std::endl;
         }
@@ -140,9 +146,8 @@ std::string BitcoinExchange::nearestDate(const std::map<std::string, float>& exc
     std::string nearest;
 
     for (std::map<std::string, float>::const_iterator it = exchangeRates.begin(); it != exchangeRates.end(); ++it) {
-        int distance = dateDifference(targetDate, it->first);
+        int distance = dateDifference(targetDate, it->first); // Get difference between given date and the current one in map loop
         if (distance < 0) distance = -distance; // Take the absolute value
-
         if (distance < minDifference) {
             minDifference = distance;
             nearest = it->first;
@@ -153,12 +158,12 @@ std::string BitcoinExchange::nearestDate(const std::map<std::string, float>& exc
 }
 
 
-// Función auxiliar para determinar si un año es bisiesto
+// Helper function to check for leap year
 bool isLeapYear(int year) {
     return (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
 }
 
-// Helper function to get the number of days up to a certain date within the year
+// Helper function to get the number of days up to a certain date within the year (from 01/01)
 int daysUptoDate(int year, int month, int day) {
     int daysInMonth[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
     if (isLeapYear(year)) {
@@ -190,15 +195,10 @@ int BitcoinExchange::dateDifference(const std::string &date1, const std::string 
     ss2.ignore(); // skip the '-'
     ss2 >> day2;
 
-	int days1 = year1 * 365 + daysUptoDate(year1, month1, day1) + (year1 / 4);  // Roughly adding days for leap years
-	int days2 = year2 * 365 + daysUptoDate(year2, month2, day2) + (year2 / 4);  // This is a simplified leap year calculation
-
-    // Compute the difference in days between the two dates, 
-    // accounting for leap years in between if necessary
+	// Total of days from day 0 up to date, with an approximate calculation for leap years (divisible by 4)
+	int days1 = year1 * 365 + daysUptoDate(year1, month1, day1) + (year1 / 4);
+	int days2 = year2 * 365 + daysUptoDate(year2, month2, day2) + (year2 / 4);
     int dayDiff = days1 - days2;
-    // for (int y = year2; y < year1; y++) {
-    //     dayDiff += isLeapYear(y) ? 366 : 365;
-    // }
 
     return dayDiff;
 }

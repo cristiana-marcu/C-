@@ -6,7 +6,7 @@
 /*   By: cristianamarcu <cristianamarcu@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 16:53:56 by cristianama       #+#    #+#             */
-/*   Updated: 2023/10/22 14:23:46 by cristianama      ###   ########.fr       */
+/*   Updated: 2023/10/22 15:29:27 by cristianama      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ int main(int argc, char **argv) {
         return 1;
     }
 
-    int result = RPN::eval(argv[1]);
+	RPN rpn;
+    int result = rpn.eval(argv[1]);
     if (result == -1) {
         std::cout << "Error" << std::endl;
     } else {

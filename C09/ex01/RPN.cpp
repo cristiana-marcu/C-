@@ -6,16 +6,33 @@
 /*   By: cristianamarcu <cristianamarcu@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 16:54:16 by cristianama       #+#    #+#             */
-/*   Updated: 2023/10/21 17:13:01 by cristianama      ###   ########.fr       */
+/*   Updated: 2023/10/22 15:32:02 by cristianama      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
 
+RPN::RPN() {}
+
+RPN::~RPN() {}
+
+RPN::RPN(const RPN& other) : s(other.s) {}
+
+RPN& RPN::operator=(const RPN& other) {
+    if (this != &other) {
+        s = other.s;
+    }
+    return *this;
+}
+
 int RPN::eval(const std::string &exp) {
-	std::stack<int> s;
     std::stringstream ss(exp);
     std::string token;
+	
+	// Clear the stack for a new evaluation
+    while (!s.empty()) {
+        s.pop();
+    }
 
     while (ss >> token) {
         if (token == "+") {

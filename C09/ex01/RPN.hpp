@@ -6,7 +6,7 @@
 /*   By: cristianamarcu <cristianamarcu@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 16:54:07 by cristianama       #+#    #+#             */
-/*   Updated: 2023/10/21 17:12:54 by cristianama      ###   ########.fr       */
+/*   Updated: 2023/10/22 15:31:35 by cristianama      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,12 @@
 
 class RPN {
 	private:
+		std::stack<int> s;
 	public:
-		static int eval(const std::string &exp);
+		RPN();
+		~RPN();
+		RPN(const RPN& other);
+		RPN& operator=(const RPN& other);
+		
+		int eval(const std::string &exp);
 };

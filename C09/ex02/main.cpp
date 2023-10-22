@@ -6,11 +6,11 @@
 /*   By: cristianamarcu <cristianamarcu@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 19:51:33 by cristianama       #+#    #+#             */
-/*   Updated: 2023/10/21 20:17:59 by cristianama      ###   ########.fr       */
+/*   Updated: 2023/10/22 14:48:17 by cristianama      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PMergeMe.hpp"
+#include "PmergeMe.hpp"
 
 int main(int argc, char* argv[]) {
     if (argc < 2) {
@@ -18,7 +18,7 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 	
-	PMergeMe sorter;
+	PmergeMe sorter;
     if (!sorter.validData(argc, argv)) return 1;
     sorter.displayAndSort();
 	

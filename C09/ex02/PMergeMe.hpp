@@ -6,7 +6,7 @@
 /*   By: cristianamarcu <cristianamarcu@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 19:58:21 by cristianama       #+#    #+#             */
-/*   Updated: 2023/10/21 20:27:48 by cristianama      ###   ########.fr       */
+/*   Updated: 2023/10/22 14:46:34 by cristianama      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #include <iterator>
 
 
-class PMergeMe {
+class PmergeMe {
 private:
     static const int K = 5;
     std::vector<int> vec;
@@ -35,10 +35,10 @@ private:
     void sort(std::list<int>& A, std::list<int>::iterator p, std::list<int>::iterator r);
 
 public:
-    PMergeMe();  // Default constructor
-    PMergeMe(const PMergeMe& other);  // Copy constructor
-    PMergeMe& operator=(const PMergeMe& other);  // Assignment operator
-    ~PMergeMe();  // Destructor
+    PmergeMe();
+    PmergeMe(const PmergeMe& other);
+    PmergeMe& operator=(const PmergeMe& other);
+    ~PmergeMe();
 
     int validData(int argc, char* argv[]);
     void displayAndSort();

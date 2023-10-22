@@ -6,35 +6,27 @@
 /*   By: cristianamarcu <cristianamarcu@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 19:51:59 by cristianama       #+#    #+#             */
-/*   Updated: 2023/10/21 20:43:45 by cristianama      ###   ########.fr       */
+/*   Updated: 2023/10/22 14:47:49 by cristianama      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PMergeMe.hpp"
+#include "PmergeMe.hpp"
 
-// Implement all member functions outside the class, e.g.,
-PMergeMe::PMergeMe() {
-    // Initialization code if needed
-}
+PmergeMe::PmergeMe() {}
 
-PMergeMe::PMergeMe(const PMergeMe& other) : vec(other.vec), lst(other.lst) {
-    // Deep copy if needed
-}
+PmergeMe::PmergeMe(const PmergeMe& other) : vec(other.vec), lst(other.lst) {}
 
-PMergeMe& PMergeMe::operator=(const PMergeMe& other) {
+PmergeMe& PmergeMe::operator=(const PmergeMe& other) {
     if (this != &other) {
         vec = other.vec;
         lst = other.lst;
-        // Add deep copy code if needed
     }
     return *this;
 }
 
-PMergeMe::~PMergeMe() {
-    // Cleanup code if needed
-}
+PmergeMe::~PmergeMe() {}
 
-int PMergeMe::validData(int argc, char *argv[])
+int PmergeMe::validData(int argc, char *argv[])
 {
 	vec.clear();
     lst.clear();
@@ -42,7 +34,7 @@ int PMergeMe::validData(int argc, char *argv[])
     // Parse command line arguments and store in containers
     for (int i = 1; i < argc; i++) {
         int value = atoi(argv[i]);
-        if (value <= 0) {
+        if (value <= 0) { // 0 is not a positive integer so it's not allowed here
             std::cout << "Error" << std::endl;
             return 0;
         }
@@ -59,7 +51,7 @@ int PMergeMe::validData(int argc, char *argv[])
 	return 1;
 }
 
-void PMergeMe::displayAndSort()
+void PmergeMe::displayAndSort()
 {
 	// Sort using std::vector and measure time
     clock_t start = clock();
@@ -67,7 +59,7 @@ void PMergeMe::displayAndSort()
     clock_t end = clock();
     double vecTime = static_cast<double>(end - start) / CLOCKS_PER_SEC;
 
-    // Display sorted sequence for std::vector
+    // Display sorted sequence
     std::cout << "After: ";
     for (size_t i = 0; i < vec.size(); i++) {
         std::cout << vec[i] << " ";
@@ -80,13 +72,16 @@ void PMergeMe::displayAndSort()
     end = clock();
     double lstTime = static_cast<double>(end - start) / CLOCKS_PER_SEC;
 
-    // Display time taken for std::list (no need to display sorted sequence again as it should be the same)
-    std::cout << "Time to process a range of " << lst.size() << " elements with std::list: " << lstTime << " us" << std::endl;
+	// Loop for printing sorted list elements to check it's the same as vector
+	// for (std::list<int>::iterator it = lst.begin(); it != lst.end(); ++it) {
+    //     std::cout << *it << " ";
+    // }
+	std::cout << "Time to process a range of " << lst.size() << " elements with std::list: " << lstTime << " us" << std::endl;
 
 }
 
 // Insertion sort for std::vector
-void PMergeMe::insertionSort(std::vector<int>& A, int p, int r) {
+void PmergeMe::insertionSort(std::vector<int>& A, int p, int r) {
     for (int i = p; i < r; i++) {
         int tempVal = A[i + 1];
         int j = i + 1;
@@ -99,7 +94,7 @@ void PMergeMe::insertionSort(std::vector<int>& A, int p, int r) {
 }
 
 // Insertion sort for std::list
-void PMergeMe::insertionSort(std::list<int>::iterator p, std::list<int>::iterator r) {
+void PmergeMe::insertionSort(std::list<int>::iterator p, std::list<int>::iterator r) {
     std::list<int>::iterator i, j;
     int tempVal;
     for (i = p; i != r; ++i) {
@@ -114,7 +109,7 @@ void PMergeMe::insertionSort(std::list<int>::iterator p, std::list<int>::iterato
 }
 
 // Merge function for std::vector
-void PMergeMe::merge(std::vector<int>& A, int p, int q, int r) {
+void PmergeMe::merge(std::vector<int>& A, int p, int q, int r) {
     int n1 = q - p + 1;
     int n2 = r - q;
     std::vector<int> LA(A.begin() + p, A.begin() + q + 1);
@@ -134,7 +129,7 @@ void PMergeMe::merge(std::vector<int>& A, int p, int q, int r) {
 }
 
 // Merge function for std::list
-void PMergeMe::merge(std::list<int>::iterator p, std::list<int>::iterator q, std::list<int>::iterator r) {
+void PmergeMe::merge(std::list<int>::iterator p, std::list<int>::iterator q, std::list<int>::iterator r) {
     std::list<int> LA(p, q);
     std::list<int> RA(q, r);
     std::list<int>::iterator lit = LA.begin(), rit = RA.begin();
@@ -150,7 +145,7 @@ void PMergeMe::merge(std::list<int>::iterator p, std::list<int>::iterator q, std
 }
 
 // Sort function for std::vector
-void PMergeMe::sort(std::vector<int>& A, int p, int r) {
+void PmergeMe::sort(std::vector<int>& A, int p, int r) {
     if (r - p > K) {
         int q = (p + r) / 2;
         sort(A, p, q);
@@ -162,7 +157,7 @@ void PMergeMe::sort(std::vector<int>& A, int p, int r) {
 }
 
 // Sort function for std::list
-void PMergeMe::sort(std::list<int>& A, std::list<int>::iterator p, std::list<int>::iterator r) {
+void PmergeMe::sort(std::list<int>& A, std::list<int>::iterator p, std::list<int>::iterator r) {
     if (std::distance(p, r) > K) {
         std::list<int>::iterator q = p;
         std::advance(q, std::distance(p, r) / 2);

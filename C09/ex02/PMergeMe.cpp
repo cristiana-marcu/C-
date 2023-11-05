@@ -6,7 +6,7 @@
 /*   By: cristianamarcu <cristianamarcu@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 19:51:59 by cristianama       #+#    #+#             */
-/*   Updated: 2023/11/05 15:26:47 by cristianama      ###   ########.fr       */
+/*   Updated: 2023/11/05 16:11:33 by cristianama      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,15 +82,15 @@ void PmergeMe::displayAndSort()
 
 // Insertion sort for std::vector
 void PmergeMe::insertionSort(std::vector<int>& A, int p, int r) {
-    for (int i = p; i < r; i++) {
-        int tempVal = A[i + 1];
-        int j = i + 1;
-        while (j > p && A[j - 1] > tempVal) {
-            A[j] = A[j - 1];
-            j--;
-        }
-        A[j] = tempVal;
-    }
+	for (int i = p; i < r; i++) {
+		int tempVal = A[i + 1];
+		int j = i + 1;
+		while (j > p && A[j - 1] > tempVal) {
+			A[j] = A[j - 1];
+			j--;
+		}
+		A[j] = tempVal;
+	}
 }
 
 // Insertion sort for std::list
